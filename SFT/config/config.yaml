@@ -1,0 +1,21 @@
+project:
+  name: SFTrainer
+  author: Yuvraj Singh
+  version: 1.0
+
+Dataset:
+    dataset_path: str = ""
+    batch_size: int = 16
+    num_workers: int = 0
+    shuffle: bool = True
+    drop_last: bool = False
+    pin_memory: bool = True
+    persistent_workers: bool = True
+    use_hf_dataset: bool = False
+
+Model:
+  model_path: str = ""
+  epochs: int = 10
+  initial_iters: int = 2000
+  total_steps: int = 10000
+  eval_iters: int = 100
