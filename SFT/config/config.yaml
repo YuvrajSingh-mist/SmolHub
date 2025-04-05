@@ -15,7 +15,16 @@ Dataset:
 
 Model:
   model_path: str = ""
-  epochs: int = 10
-  initial_iters: int = 2000
-  total_steps: int = 10000
-  eval_iters: int = 100
+  epochs: int = 1
+  eval_iters: int = 10
+
+MAP:
+  use_bfloat16: bool = False
+  use_float16: bool = False
+
+Optimizations:
+  use_compile: bool = False
+
+Scheduler:
+  use_scheduler: bool = False 
+  type: str = "cosine"
