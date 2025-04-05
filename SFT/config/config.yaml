@@ -28,3 +28,9 @@ Optimizations:
 Scheduler:
   use_scheduler: bool = False 
   type: str = "cosine"
+
+
+wandb:
+  project_name: str = "SFTrainer"
+  
+
