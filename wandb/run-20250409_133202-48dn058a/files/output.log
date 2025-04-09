@@ -1,0 +1,15 @@
+Setting pad token to eos token
+Creating validation split from train
+Map: 100%|█████████████████████████████████████████████████████████████████████████████████████| 25000/25000 [00:24<00:00, 1039.05 examples/s]
+Map: 100%|█████████████████████████████████████████████████████████████████████████████████████| 25000/25000 [00:23<00:00, 1043.76 examples/s]
+Map: 100%|█████████████████████████████████████████████████████████████████████████████████████| 50000/50000 [00:46<00:00, 1073.79 examples/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/tests/test_finetune.py", line 30, in <module>
+    train_dataloader = preprocess_dataset.prepare_dataset(isTrain=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/helper/dataset/dataset_main.py", line 96, in prepare_dataset
+    self.dataset = self.dataset.drop_columns(["text"])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DatasetDict' object has no attribute 'drop_columns'

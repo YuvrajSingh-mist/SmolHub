@@ -1,2 +1,2 @@
-from SFT import finetune
+from SFT.finetune import SFTTrainer
 

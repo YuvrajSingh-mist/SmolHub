@@ -1,0 +1,17 @@
+Setting pad token as '[PAD]
+Creating validation split from train
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 22500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 2500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 25000
+})
+Map: 100%|█████████████████████████████████████████████████████████████████████████████████████| 25000/25000 [00:23<00:00, 1085.29 examples/s]
+Map: 100%|█████████████████████████████████████████████████████████████████████████████████████| 25000/25000 [00:23<00:00, 1060.40 examples/s]
+Map:  18%|███████████████                                                                       | 8769/50000 [00:08<00:40, 1024.11 examples/s]

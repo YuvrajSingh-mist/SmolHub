@@ -12,7 +12,7 @@ class ModelArgs:
 
 
 class LoRALayer(nn.Module):
-    def __init__(self) -> None:
+    def __init__(self, model) -> None:
         super().__init__()
 
 
@@ -44,14 +44,14 @@ class LoRALayer(nn.Module):
 
 
 class LoRAWrapper(nn.Module):
-    def __init__(self) -> None:
+    def __init__(self, model) -> None:
         super().__init__()
-        self.lora_layer = LoRALayer()
+        self.lora_layer = LoRALayer(model)
         self.config = model.config
-
+        self.model = model
     def forward(self, x):
-        qkv_layers = [model.transformer.h[i].attn.c_attn for i in range(self.config.n_layer)]
-        o_layers = [model.transformer.h[i].attn.c_proj for i in range(self.config.n_layer)]
+        qkv_layers = [self.model.transformer.h[i].attn.c_attn for i in range(self.config.n_layer)]
+        o_layers = [self.model.transformer.h[i].attn.c_proj for i in range(self.config.n_layer)]
 
         for i in range(len(qkv_layers)):
             hidden_size = qkv_layers[i].weight.size(-1) // 3
@@ -65,9 +65,9 @@ class LoRAWrapper(nn.Module):
 
 
 class LoRAModel(nn.Module):
-    def __init__(self) -> None:
+    def __init__(self, model) -> None:
         super().__init__()
-        self.lora_wrapper = LoRAWrapper()
+        self.lora_wrapper = LoRAWrapper(model)
 
         self.config = model.config
 

@@ -1,0 +1,15 @@
+{"time":"2025-04-09T10:53:46.087743699Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/wandb/run-20250409_105345-ucdlxt3b/logs/debug-core.log"}
+{"time":"2025-04-09T10:53:47.010689801Z","level":"INFO","msg":"created new stream","id":"ucdlxt3b"}
+{"time":"2025-04-09T10:53:47.011006472Z","level":"INFO","msg":"stream: started","id":"ucdlxt3b"}
+{"time":"2025-04-09T10:53:47.011035218Z","level":"INFO","msg":"writer: Do: started","stream_id":"ucdlxt3b"}
+{"time":"2025-04-09T10:53:47.011081779Z","level":"INFO","msg":"handler: started","stream_id":"ucdlxt3b"}
+{"time":"2025-04-09T10:53:47.011101779Z","level":"INFO","msg":"sender: started","stream_id":"ucdlxt3b"}
+{"time":"2025-04-09T10:53:47.852809851Z","level":"INFO","msg":"stream: closing","id":"ucdlxt3b"}
+{"time":"2025-04-09T10:53:47.853099106Z","level":"ERROR","msg":"sender: upsertConfig: RunRecord is nil"}
+{"time":"2025-04-09T10:53:48.228877377Z","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-04-09T10:53:48.22951173Z","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404: {\"data\":{\"createRunFiles\":null},\"errors\":[{\"message\":\"project /str = \\\"SFTrainer\\\" not found during createRunFiles\",\"path\":[\"createRunFiles\"]}]}"}
+{"time":"2025-04-09T10:53:48.253624942Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-09T10:53:48.254804036Z","level":"INFO","msg":"handler: closed","stream_id":"ucdlxt3b"}
+{"time":"2025-04-09T10:53:48.254874075Z","level":"INFO","msg":"writer: Close: closed","stream_id":"ucdlxt3b"}
+{"time":"2025-04-09T10:53:48.254958093Z","level":"INFO","msg":"sender: closed","stream_id":"ucdlxt3b"}
+{"time":"2025-04-09T10:53:48.25936966Z","level":"INFO","msg":"stream: closed","id":"ucdlxt3b"}

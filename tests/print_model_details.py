@@ -1,6 +1,8 @@
 
 from torchinfo import summary
 
+from SFT.scripts.lora import ModelArgs
+
 def print_model(model, dataloader):
     # lora_model = LoRAModel()
     model.to(ModelArgs.device)

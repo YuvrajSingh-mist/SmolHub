@@ -3,34 +3,36 @@ project:
   author: Yuvraj Singh
   version: 1.0
 
+
 Dataset:
-    dataset_path: str = ""
-    batch_size: int = 16
-    num_workers: int = 0
-    shuffle: bool = True
-    drop_last: bool = False
-    pin_memory: bool = True
-    persistent_workers: bool = True
-    use_hf_dataset: bool = False
+    use_hf_dataset: True
+    dataset_path: stanfordnlp/imdb
+    max_length: 128
+    batch_size:  16
+    num_workers:  4
+    shuffle:  True
+    drop_last: True
+    pin_memory:  True
+    persistent_workers:  True
+   
+huggingface:
+  hf_token: "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"
 
 Model:
-  model_path: str = ""
-  epochs: int = 1
-  eval_iters: int = 10
+  model_path: ""
+  epochs: 1
+  eval_iters: 10
+  tokenizer: ""
 
 MAP:
-  use_bfloat16: bool = False
-  use_float16: bool = False
+  use_bfloat16:  False
+  use_float16: True
 
 Optimizations:
-  use_compile: bool = False
-
-Scheduler:
-  use_scheduler: bool = False 
-  type: str = "cosine"
+  use_compile: False
 
 
 wandb:
-  project_name: str = "SFTrainer"
+  project_name: "SFTrainer"
   
 

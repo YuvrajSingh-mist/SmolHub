@@ -1,5 +1,6 @@
+from typing import Dict
 import wandb
-from load_config import Config
+from SFT.helper.dataset.load_config import Config
 
 config = Config().get_config()
 
