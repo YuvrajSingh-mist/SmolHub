@@ -1,0 +1,84 @@
+Setting pad token as '[PAD]'
+Creating validation split from train
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 22500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 2500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 25000
+})
+========================================================================================================================
+Layer (type (var_name))                  Input Shape          Output Shape         Param #              Trainable
+========================================================================================================================
+LoRAModel (LoRAModel)                    [1, 1024]            [1, 1024]            --                   True
+├─LoRAWrapper (lora_wrapper)             [1, 1024]            [1, 1024]            124,439,808          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           24,576               True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+========================================================================================================================
+Total params: 124,464,384
+Trainable params: 124,464,384
+Non-trainable params: 0
+Total mult-adds (Units.MEGABYTES): 0
+========================================================================================================================
+Input size (MB): 0.01
+Forward/backward pass size (MB): 56.62
+Params size (MB): 0.10
+Estimated Total Size (MB): 56.73
+========================================================================================================================
+Total trainable parameters: 124464384  which is:  76.34110265299971 %\ of 163037184 trainable params
+  0%|                                                                                                                | 0/1406 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/tests/test_finetune.py", line 36, in <module>
+    sft_trainer.train()
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/scripts/finetune.py", line 83, in train
+    idx, targets, loss_mask = next(self.train_dataloader)
+    ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 3)
+Exception ignored in atexit callback: <function _MultiProcessingDataLoaderIter._clean_up_worker at 0x7f7df6788a40>
+Traceback (most recent call last):
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1473, in _clean_up_worker
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt:
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x7f7df3bf1a80>
+Traceback (most recent call last):
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/threading.py", line 1119, in join
+    self._wait_for_tstate_lock()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/threading.py", line 1139, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt:

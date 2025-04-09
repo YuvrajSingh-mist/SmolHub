@@ -1,0 +1,7 @@
+{"time":"2025-04-09T17:38:27.977719137Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/wandb/run-20250409_173827-osidliqs/logs/debug-core.log"}
+{"time":"2025-04-09T17:38:28.671502365Z","level":"INFO","msg":"created new stream","id":"osidliqs"}
+{"time":"2025-04-09T17:38:28.671850386Z","level":"INFO","msg":"stream: started","id":"osidliqs"}
+{"time":"2025-04-09T17:38:28.671923349Z","level":"INFO","msg":"handler: started","stream_id":"osidliqs"}
+{"time":"2025-04-09T17:38:28.67189327Z","level":"INFO","msg":"writer: Do: started","stream_id":"osidliqs"}
+{"time":"2025-04-09T17:38:28.671917581Z","level":"INFO","msg":"sender: started","stream_id":"osidliqs"}
+{"time":"2025-04-09T17:38:29.370203173Z","level":"INFO","msg":"Starting system monitor"}

@@ -1,0 +1,90 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/tests/test_finetune.py", line 4, in <module>
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+  File "<frozen importlib._bootstrap>", line 1229, in _handle_fromlist
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1852, in __getattr__
+    value = getattr(module, name)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1851, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1863, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 38, in <module>
+    from .auto_factory import _LazyAutoMapping
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 40, in <module>
+    from ...generation import GenerationMixin
+  File "<frozen importlib._bootstrap>", line 1229, in _handle_fromlist
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1851, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1863, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/transformers/generation/utils.py", line 53, in <module>
+    from .candidate_generator import (
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/transformers/generation/candidate_generator.py", line 26, in <module>
+    from sklearn.metrics import roc_curve
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/wandb/sdk/lib/import_hooks.py", line 182, in _exec_module
+    self.loader.exec_module(module)
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/sklearn/__init__.py", line 73, in <module>
+    from .base import clone  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/sklearn/base.py", line 19, in <module>
+    from .utils._estimator_html_repr import _HTMLDocumentationLinkMixin, estimator_html_repr
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/sklearn/utils/__init__.py", line 15, in <module>
+    from ._chunking import gen_batches, gen_even_slices
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/sklearn/utils/_chunking.py", line 11, in <module>
+    from ._param_validation import Interval, validate_params
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/sklearn/utils/_param_validation.py", line 17, in <module>
+    from .validation import _is_arraylike_not_scalar
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/sklearn/utils/validation.py", line 21, in <module>
+    from ..utils._array_api import _asarray_with_order, _is_numpy_namespace, get_namespace
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/sklearn/utils/_array_api.py", line 17, in <module>
+    from .fixes import parse_version
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/sklearn/utils/fixes.py", line 17, in <module>
+    import scipy.stats
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/scipy/stats/__init__.py", line 624, in <module>
+    from ._stats_py import *
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/scipy/stats/_stats_py.py", line 52, in <module>
+    from . import distributions
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/scipy/stats/distributions.py", line 11, in <module>
+    from . import _discrete_distns
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/scipy/stats/_discrete_distns.py", line 1763, in <module>
+    skellam = skellam_gen(a=-np.inf, name="skellam", longname='A Skellam')
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 3320, in __init__
+    self._attach_methods()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 3333, in _attach_methods
+    self._cdfvec = vectorize(self._cdf_single, otypes='d')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py", line 2419, in __init__
+    excluded = set()
+               ^^^^^
+KeyboardInterrupt
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x7f94515f1a80>
+Traceback (most recent call last):
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/threading.py", line 1119, in join
+    self._wait_for_tstate_lock()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/threading.py", line 1139, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt:

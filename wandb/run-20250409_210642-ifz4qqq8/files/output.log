@@ -1,0 +1,108 @@
+Setting pad token as PAD token
+The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+Creating validation split from train
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 22500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 2500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 25000
+})
+============================================================================================================================================
+Layer (type (var_name))                                      Input Shape          Output Shape         Param #              Trainable
+============================================================================================================================================
+LoRAModel (LoRAModel)                                        [1, 1024]            [1, 12, 1024, 64]    --                   Partial
+├─LoRAWrapper (lora_wrapper)                                 [1, 1024]            [1, 12, 1024, 64]    --                   Partial
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           24,576               True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─GPT2LMHeadModel (model)                               [1, 1024]            [1, 12, 1024, 64]    --                   False
+│    │    └─GPT2Model (transformer)                          [1, 1024]            [1, 12, 1024, 64]    (124,440,576)        False
+│    │    └─Linear (lm_head)                                 [1, 1024, 768]       [1, 1024, 50258]     (38,598,144)         False
+============================================================================================================================================
+Total params: 163,063,296
+Trainable params: 24,576
+Non-trainable params: 163,038,720
+Total mult-adds (Units.GIGABYTES): 163.34
+============================================================================================================================================
+Input size (MB): 0.01
+Forward/backward pass size (MB): 1317.68
+Params size (MB): 652.25
+Estimated Total Size (MB): 1969.94
+============================================================================================================================================
+Total trainable parameters: 24576  which is:  0.015073861923424782 %\ of 163037184 trainable params
+  1%|▋                                                                                                    | 10/1406 [04:01<9:22:18, 24.17s/it]
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/linecache.py", line 46, in getlines
+    return updatecache(filename, module_globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/linecache.py", line 93, in updatecache
+    stat = os.stat(fullname)
+           ^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+Original exception was:
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/tests/test_finetune.py", line 40, in <module>
+    sft_trainer.train()
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/scripts/finetune.py", line 81, in train
+    losses = self.evaluate()
+             ^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/scripts/finetune.py", line 57, in evaluate
+    idx = batch['input_ids'].to(self.device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x7f6cb7f38040>
+Traceback (most recent call last):
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/threading.py", line 1119, in join
+    self._wait_for_tstate_lock()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/threading.py", line 1139, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt:
+Exception ignored in atexit callback: <bound method finalize._exitfunc of <class 'weakref.finalize'>>
+Traceback (most recent call last):
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/weakref.py", line 666, in _exitfunc
+    f()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1176, in _close_pool_connections
+    conn.close()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/urllib3/connection.py", line 322, in close
+    super().close()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/http/client.py", line 981, in close
+    sock.close()   # close it manually... there may be other refs
+    ^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/socket.py", line 503, in close
+    self._real_close()
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/ssl.py", line 1373, in _real_close
+    super()._real_close()
+    ^^^^^^^
+KeyboardInterrupt:

@@ -1,0 +1,74 @@
+Setting pad token as PAD token
+The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+Creating validation split from train
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 22500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 2500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 25000
+})
+============================================================================================================================================
+Layer (type (var_name))                                      Input Shape          Output Shape         Param #              Trainable
+============================================================================================================================================
+LoRAModel (LoRAModel)                                        [1, 1024]            [1, 12, 1024, 64]    --                   Partial
+├─LoRAWrapper (lora_wrapper)                                 [1, 1024]            [1, 12, 1024, 64]    --                   Partial
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           24,576               True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─GPT2LMHeadModel (model)                               [1, 1024]            [1, 12, 1024, 64]    --                   False
+│    │    └─GPT2Model (transformer)                          [1, 1024]            [1, 12, 1024, 64]    (124,440,576)        False
+│    │    └─Linear (lm_head)                                 [1, 1024, 768]       [1, 1024, 50258]     (38,598,144)         False
+============================================================================================================================================
+Total params: 163,063,296
+Trainable params: 24,576
+Non-trainable params: 163,038,720
+Total mult-adds (Units.GIGABYTES): 163.34
+============================================================================================================================================
+Input size (MB): 0.01
+Forward/backward pass size (MB): 1317.68
+Params size (MB): 652.25
+Estimated Total Size (MB): 1969.94
+============================================================================================================================================
+Total trainable parameters: 24576  which is:  0.015073861923424782 %\ of 163037184 trainable params
+  0%|                                                                                                                | 0/1406 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/tests/test_finetune.py", line 40, in <module>
+    sft_trainer.train()
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/scripts/finetune.py", line 137, in train
+    'grad_norm': total_norm_before.item(),
+                 ^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'total_norm_before' where it is not associated with a value
+Exception ignored in atexit callback: <function _MultiProcessingDataLoaderIter._clean_up_worker at 0x7f3aaf38ca40>
+Traceback (most recent call last):
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1473, in _clean_up_worker
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/multiprocessing/popen_fork.py", line 40, in wait
+    if not wait([self.sentinel], timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/multiprocessing/connection.py", line 948, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt:

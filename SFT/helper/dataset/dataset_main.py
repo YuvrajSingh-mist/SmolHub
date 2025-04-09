@@ -10,12 +10,13 @@ class PreprocessDataset:
     def __init__(self, dataset_path=None, tokenizer=None):
         self.dataset_path = dataset_path
         self.use_hf_dataset = config["Dataset"]["use_hf_dataset"]
-        self.tokenizer_path = config["Model"]["tokenizer"]
+        # self.tokenizer_path = config["Model"]["tokenizer"]
         self.train = None
         self.val = None
         self.test = None
         self.tokenizer = tokenizer
-
+       
+        
     def check_for_split(self, dataset):
         # Initialize all splits to None
         self.train = self.val = self.test = None
@@ -102,31 +103,53 @@ class PreprocessDataset:
         raise ValueError("Unexpected dataset split configuration. Could not create required splits.")
         
         # A full HF dataset object is required rest it will take care
-    def prepare_dataset(self, isTrain=False):
+    def prepare_dataset(self):
+        
         if(self.use_hf_dataset):
             self.dataset = load_dataset(self.dataset_path, token=config["huggingface"]["hf_token"])
             # print(self.dataset)
+            self.labels = self.get_unique_labels(self.dataset)
             self.check_for_split(self.dataset)
             self.check_for_required_columns(self.train)
             self.check_for_required_columns(self.test)
             self.check_for_required_columns(self.val)
-            self.dataset = self.dataset.map(self.tokenize)
-            self.dataset = self.dataset.remove_columns(["text"])
-            dataloader = convert_dataset_to_dataloader(self.dataset, isTrain)
-            return dataloader   
+            
+            
+            # self.train = self.train.map(self.tokenize)
+            # self.val = self.val.map(self.tokenize)
+            # self.test = self.test.map(self.tokenize)
+            
+            # self.train = self.train.remove_columns(["text"])
+            # self.val = self.val.remove_columns(["text"])
+            # self.test = self.test.remove_columns(["text"])
+            
+            train_dataloader = convert_dataset_to_dataloader(self.train, self.tokenizer, self.labels)
+            val_dataloader = convert_dataset_to_dataloader(self.val, self.tokenizer , self.labels)
+            test_dataloader = convert_dataset_to_dataloader(self.test, self.tokenizer   , self.labels)
+            
+            return train_dataloader, val_dataloader, test_dataloader   
         # If not using HF dataset, we are using a custom dataset
         # Just a full csv or json is required with train key value pair
         else:
             self.sft_dataset = SFTDataset(self.dataset_path)
+            self.labels = self.get_unique_labels(self.sft_dataset)
             self.check_for_split(self.sft_dataset)
-            self.check_for_required_columns(self.sft_dataset)
-            self.check_for_required_columns(self.sft_dataset)
-            self.check_for_required_columns(self.sft_dataset)
-            self.sft_dataset = self.sft_dataset.map(self.tokenize)
-            self.sft_dataset = self.sft_dataset.remove_columns(["text"])
-            dataloader = convert_dataset_to_dataloader(self.sft_dataset, isTrain)
-            return dataloader
+            self.check_for_required_columns(self.train)
+            self.check_for_required_columns(self.test)
+            self.check_for_required_columns(self.val)
+            
+            # self.train = self.train.map(self.tokenize)
+            # self.val = self.val.map(self.tokenize)
+            # self.test = self.test.map(self.tokenize)
+            
+            train_dataloader = convert_dataset_to_dataloader(self.train, self.tokenizer, self.labels)
+            val_dataloader = convert_dataset_to_dataloader(self.val, self.tokenizer, self.labels)
+            test_dataloader = convert_dataset_to_dataloader(self.test, self.tokenizer, self.labels)
+            
+            return train_dataloader, val_dataloader, test_dataloader
 
+    
+    
     def check_for_required_columns(self, dataset):
         required_columns = ["text", "label"]
         for column in required_columns:
@@ -137,7 +160,12 @@ class PreprocessDataset:
         if dataset['label'].dtype != 'float32' or dataset['label'].dtype != 'int32':
             raise ValueError("Label column must be of type float or int")
 
-    def tokenize(self, example):
-        tokenzied_input = {}
-        tokenzied_input['tokenized_text'] = self.tokenizer(example["text"], return_tensors="pt", padding='max_length', truncation=True, max_length=config["Dataset"]["max_length"] )
-        return tokenzied_input
+
+    def get_unique_labels(self, dataset):
+        labels = []
+        for example in dataset['train']:
+            # print(example)
+            if example['label'] not in labels:
+                labels.append(example['label'])
+        return labels
+        

@@ -1,0 +1,7 @@
+{"time":"2025-04-09T21:20:32.94267029Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/wandb/run-20250409_212032-cf18d0ds/logs/debug-core.log"}
+{"time":"2025-04-09T21:20:33.342946388Z","level":"INFO","msg":"created new stream","id":"cf18d0ds"}
+{"time":"2025-04-09T21:20:33.343202656Z","level":"INFO","msg":"stream: started","id":"cf18d0ds"}
+{"time":"2025-04-09T21:20:33.343235134Z","level":"INFO","msg":"writer: Do: started","stream_id":"cf18d0ds"}
+{"time":"2025-04-09T21:20:33.343254015Z","level":"INFO","msg":"sender: started","stream_id":"cf18d0ds"}
+{"time":"2025-04-09T21:20:33.343255323Z","level":"INFO","msg":"handler: started","stream_id":"cf18d0ds"}
+{"time":"2025-04-09T21:20:33.952347762Z","level":"INFO","msg":"Starting system monitor"}

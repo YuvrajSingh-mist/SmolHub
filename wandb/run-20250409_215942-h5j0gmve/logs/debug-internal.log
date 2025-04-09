@@ -1,0 +1,10 @@
+{"time":"2025-04-09T21:59:42.196416972Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/wandb/run-20250409_215942-h5j0gmve/logs/debug-core.log"}
+{"time":"2025-04-09T21:59:42.77007513Z","level":"INFO","msg":"created new stream","id":"h5j0gmve"}
+{"time":"2025-04-09T21:59:42.770737368Z","level":"INFO","msg":"stream: started","id":"h5j0gmve"}
+{"time":"2025-04-09T21:59:42.770779098Z","level":"INFO","msg":"writer: Do: started","stream_id":"h5j0gmve"}
+{"time":"2025-04-09T21:59:42.770845531Z","level":"INFO","msg":"handler: started","stream_id":"h5j0gmve"}
+{"time":"2025-04-09T21:59:42.770858987Z","level":"INFO","msg":"sender: started","stream_id":"h5j0gmve"}
+{"time":"2025-04-09T21:59:43.868830253Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-09T22:00:36.978994865Z","level":"INFO","msg":"stream: closing","id":"h5j0gmve"}
+{"time":"2025-04-09T22:00:36.979280259Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-09T22:00:36.980249182Z","level":"INFO","msg":"Stopped system monitor"}

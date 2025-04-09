@@ -1,0 +1,62 @@
+Setting pad token as '[PAD]'
+Creating validation split from train
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 22500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 2500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 25000
+})
+========================================================================================================================
+Layer (type (var_name))                  Input Shape          Output Shape         Param #              Trainable
+========================================================================================================================
+LoRAModel (LoRAModel)                    [1, 1024]            [1, 1024]            --                   True
+├─LoRAWrapper (lora_wrapper)             [1, 1024]            [1, 1024]            124,439,808          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           24,576               True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)            [768, 768]           [768, 768]           (recursive)          True
+========================================================================================================================
+Total params: 124,464,384
+Trainable params: 124,464,384
+Non-trainable params: 0
+Total mult-adds (Units.MEGABYTES): 0
+========================================================================================================================
+Input size (MB): 0.01
+Forward/backward pass size (MB): 56.62
+Params size (MB): 0.10
+Estimated Total Size (MB): 56.73
+========================================================================================================================
+Total trainable parameters: 124464384  which is:  -75.34110265299971 %\ of 163037184 trainable params
+  0%|                                                                                                                | 0/1406 [00:00<?, ?it/s]
+
+
+tensor([[  198,   220,   220,  ..., 50257, 50257, 50257],
+        [  198,   220,   220,  ...,   220,   220,   220],
+        [  198,   220,   220,  ..., 50257, 50257, 50257],
+        ...,
+        [  198,   220,   220,  ...,  1596,  1558,    11],
+        [  198,   220,   220,  ..., 50257, 50257, 50257],
+        [  198,   220,   220,  ...,   642,  5333,    11]], device='cuda:0')
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/tests/test_finetune.py", line 36, in <module>
+    sft_trainer.train()
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/scripts/finetune.py", line 93, in train
+    batch_size, block_size, embeddings_dims = logits.shape
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 3, got 2)

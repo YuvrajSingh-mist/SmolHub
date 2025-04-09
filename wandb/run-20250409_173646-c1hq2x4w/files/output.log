@@ -1,0 +1,11 @@
+Setting pad token as '[PAD]'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/tests/test_finetune.py", line 29, in <module>
+    preprocess_dataset = PreprocessDataset(dataset_path=dataset_path, tokenizer=tokenizer)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/helper/dataset/dataset_main.py", line 13, in __init__
+    self.tokenizer_path = config["Model"]["tokenizer"]
+                          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'tokenizer'

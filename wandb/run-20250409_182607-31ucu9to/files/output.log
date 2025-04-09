@@ -1,0 +1,57 @@
+Setting pad token as eos token
+Creating validation split from train
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 22500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 2500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 25000
+})
+tensor([[26357, 44599, 12375,  ..., 15731, 29387, 25362]])
+============================================================================================================================================
+Layer (type (var_name))                                      Input Shape          Output Shape         Param #              Trainable
+============================================================================================================================================
+LoRAModel (LoRAModel)                                        [1, 1024]            [1, 12, 1024, 64]    --                   Partial
+├─LoRAWrapper (lora_wrapper)                                 [1, 1024]            [1, 12, 1024, 64]    --                   Partial
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           49,152               True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─GPT2LMHeadModel (model)                               [1, 1024]            [1, 12, 1024, 64]    --                   False
+│    │    └─GPT2Model (transformer)                          [1, 1024]            [1, 12, 1024, 64]    (124,439,808)        False
+│    │    └─Linear (lm_head)                                 [1, 1024, 768]       [1, 1024, 50257]     (38,597,376)         False
+============================================================================================================================================
+Total params: 163,086,336
+Trainable params: 49,152
+Non-trainable params: 163,037,184
+Total mult-adds (Units.GIGABYTES): 163.34
+============================================================================================================================================
+Input size (MB): 0.01
+Forward/backward pass size (MB): 1317.68
+Params size (MB): 652.35
+Estimated Total Size (MB): 1970.03
+============================================================================================================================================
+Total trainable parameters: 49152  which is:  0.030147723846849564 %\ of 163037184 trainable params
+  0%|                                                                                                                | 0/1406 [00:00<?, ?it/s]
+
+
+tensor([[  198,   220,   220,  ..., 50256, 50256, 50256],
+        [  198,   220,   220,  ..., 36100,    11,   220],
+        [  198,   220,   220,  ..., 50256, 50256, 50256],
+        ...,
+        [  198,   220,   220,  ...,    11,   198,   220],
+        [  198,   220,   220,  ..., 50256, 50256, 50256],
+        [  198,   220,   220,  ...,   220,   220,   220]])

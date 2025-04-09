@@ -1,0 +1,16 @@
+Setting pad token as PAD token
+The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+train
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/tests/test_finetune.py", line 34, in <module>
+    train_dataloader, val_dataloader, test_dataloader = preprocess_dataset.prepare_dataset()
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/helper/dataset/dataset_main.py", line 111, in prepare_dataset
+    self.labels = self.get_unique_labels(self.dataset)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/helper/dataset/dataset_main.py", line 168, in get_unique_labels
+    if example['label'] not in labels:
+       ~~~~~~~^^^^^^^^^
+TypeError: string indices must be integers, not 'str'

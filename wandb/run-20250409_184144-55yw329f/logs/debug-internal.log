@@ -1,0 +1,15 @@
+{"time":"2025-04-09T18:41:44.571499048Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/wandb/run-20250409_184144-55yw329f/logs/debug-core.log"}
+{"time":"2025-04-09T18:41:45.146366191Z","level":"INFO","msg":"created new stream","id":"55yw329f"}
+{"time":"2025-04-09T18:41:45.146996866Z","level":"INFO","msg":"stream: started","id":"55yw329f"}
+{"time":"2025-04-09T18:41:45.147039029Z","level":"INFO","msg":"handler: started","stream_id":"55yw329f"}
+{"time":"2025-04-09T18:41:45.147082983Z","level":"INFO","msg":"writer: Do: started","stream_id":"55yw329f"}
+{"time":"2025-04-09T18:41:45.14709845Z","level":"INFO","msg":"sender: started","stream_id":"55yw329f"}
+{"time":"2025-04-09T18:41:45.852779169Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-09T18:43:04.357405694Z","level":"INFO","msg":"stream: closing","id":"55yw329f"}
+{"time":"2025-04-09T18:43:04.357512497Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-09T18:43:04.360665502Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-09T18:43:05.682663203Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-09T18:43:06.335094082Z","level":"INFO","msg":"handler: closed","stream_id":"55yw329f"}
+{"time":"2025-04-09T18:43:06.335120186Z","level":"INFO","msg":"writer: Close: closed","stream_id":"55yw329f"}
+{"time":"2025-04-09T18:43:06.335192048Z","level":"INFO","msg":"sender: closed","stream_id":"55yw329f"}
+{"time":"2025-04-09T18:43:06.339368616Z","level":"INFO","msg":"stream: closed","id":"55yw329f"}

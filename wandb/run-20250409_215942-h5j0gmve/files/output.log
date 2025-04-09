@@ -1,0 +1,85 @@
+Setting pad token as PAD token
+The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+Creating validation split from train
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 22500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 2500
+})
+Dataset({
+    features: ['text', 'label'],
+    num_rows: 25000
+})
+============================================================================================================================================
+Layer (type (var_name))                                      Input Shape          Output Shape         Param #              Trainable
+============================================================================================================================================
+LoRAModel (LoRAModel)                                        [1, 1024]            [1, 12, 1024, 64]    --                   Partial
+├─LoRAWrapper (lora_wrapper)                                 [1, 1024]            [1, 12, 1024, 64]    --                   Partial
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           24,576               True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─LoRALayer (lora_layer)                                [768, 768]           [768, 768]           (recursive)          True
+│    └─GPT2LMHeadModel (model)                               [1, 1024]            [1, 12, 1024, 64]    --                   False
+│    │    └─GPT2Model (transformer)                          [1, 1024]            [1, 12, 1024, 64]    (124,440,576)        False
+│    │    └─Linear (lm_head)                                 [1, 1024, 768]       [1, 1024, 50258]     (38,598,144)         False
+============================================================================================================================================
+Total params: 163,063,296
+Trainable params: 24,576
+Non-trainable params: 163,038,720
+Total mult-adds (Units.GIGABYTES): 163.34
+============================================================================================================================================
+Input size (MB): 0.01
+Forward/backward pass size (MB): 1317.68
+Params size (MB): 652.25
+Estimated Total Size (MB): 1969.94
+============================================================================================================================================
+Total trainable parameters: 24576  which is:  0.015073861923424782 %\ of 163037184 trainable params
+  1%|▋                                                                                                    | 10/1406 [00:33<1:17:25,  3.33s/it]
+
+
+Train:  1.6256822347640991
+Train:  1.3961073160171509
+Train:  1.1770508289337158
+Train:  2.221193552017212
+Train:  1.875609278678894
+Train:  1.4118995666503906
+Train:  1.7506636381149292
+Train:  1.8897247314453125
+Train:  1.3234628438949585
+Train:  1.5556952953338623
+Val:  1.8760713338851929
+Val:  1.3460819721221924
+Val:  1.5378628969192505
+Val:  1.3721405267715454
+Val:  1.3590208292007446
+Val:  1.4204494953155518
+Val:  1.4089844226837158
+Val:  1.2195348739624023
+Val:  1.3362064361572266
+Val:  1.6314481496810913
+Val:  1.1647300720214844
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/tests/test_finetune.py", line 43, in <module>
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/scripts/finetune.py", line 83, in train
+    losses = self.evaluate()
+             ^^^^^^^^^^^^^^^
+  File "/home/yuvrajsingh/anaconda3/envs/mt/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/scripts/finetune.py", line 69, in evaluate
+    print('Val: ', loss.item())
+                   ^^^^^^^^^^^
+KeyboardInterrupt
