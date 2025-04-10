@@ -1,5 +1,87 @@
+Metadata-Version: 2.4
+Name: smolhub
+Version: 0.5.5
+Author: Yuvraj Singh
+Author-email: yuvraj.mist@gmail.com
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: torch
+Requires-Dist: transformers
+Requires-Dist: datasets
+Requires-Dist: wandb
+Requires-Dist: tqdm
+Requires-Dist: pyyaml
+Requires-Dist: numpy
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: requires-python
+
+# SmolHub
+
+A lightweight package for fine-tuning language models using LoRA (Low-Rank Adaptation).
+
+## Installation
+
+```bash
+pip install smolhub
+```
+
+## Usage
+
+A default config file is created in the user project directory if not already there
+
+### Example Config
+
+```python
+
+project:
+  name: SFTrainer
+  author: Yuvraj Singh
+  version: 1.0
+
+LoRA:
+  rank: 4
+  alpha: 8
+Dataset:
+    use_hf_dataset: True
+    dataset_path: stanfordnlp/imdb
+    max_length: 512
+    batch_size:  16
+    num_workers:  4
+    shuffle:  True
+    drop_last: True
+    pin_memory:  True
+    persistent_workers:  True
+    type: "classification" #TODO Add Chat style and Instruction 
+   
+huggingface:
+  hf_token: "..."
+
+Model:
+  epochs: 1
+  eval_iters: 10
+
+MAP:
+  use_bfloat16:  False
+  use_float16: False
+
+Optimizations:
+  use_compile: False
+
+
+wandb:
+  project_name: "SFTrainer"
+  
+
+
+```
+
+```python
 import torch
-# import smolhub
+import smolhub
 # from smolhub.helper.dataset.load_config import Config
 from smolhub.scripts.finetune import SFTTrainer
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -39,4 +121,7 @@ sft_trainer = SFTTrainer(lora_model, train_dataloader, val_dataloader, test_data
 
 #Train
 sft_trainer.train()
+
+
+```
 

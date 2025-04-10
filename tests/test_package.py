@@ -3,8 +3,9 @@ from smolhub.scripts.lora import LoRAModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from smolhub.helper.dataset.dataset_main import PreprocessDataset
 from smolhub.helper.scheduler import CustomLRScheduler
-from tests.load_config import Config
+# from load_config import Config
 import torch
+from smolhub.helper.dataset.load_config import Config
 
 model_id = "openai-community/gpt2"
 

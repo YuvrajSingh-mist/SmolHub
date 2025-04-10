@@ -4,3 +4,4 @@ wandb/
 dist/
 src/smolhub/__pycache__
 src/smolhub.egg-info
+notes.md
