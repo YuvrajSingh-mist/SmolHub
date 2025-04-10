@@ -1,4 +1,5 @@
 .env
+.pypirc
 wandb/
 dist/
 src/smolhub/__pycache__
