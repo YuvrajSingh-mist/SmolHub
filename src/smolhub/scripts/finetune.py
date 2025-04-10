@@ -1,4 +1,5 @@
 import torch
+from smolhub.helper.save_model import SaveModel
 from smolhub.helper.dataset.load_config import Config
 
 from torch.cuda.amp import GradScaler
@@ -11,14 +12,14 @@ from smolhub.helper.visualize import Visualizer
 
 
 class SFTTrainer:
-    def __init__(self, model, train_dataloader, val_dataloader, test_dataloader, optimizer, loss_fn, scheduler=None):
+    def __init__(self, model, train_dataloader, val_dataloader, test_dataloader, optimizer, loss_fn, tokenizer, scheduler=None):
 
         self.model = model
-        self.train_dataloader = iter(train_dataloader)
-        self.val_dataloader = iter(val_dataloader)
-        self.test_dataloader = iter(test_dataloader)
+        self.train_dataloader = train_dataloader
+        self.val_dataloader = val_dataloader
+        self.test_dataloader = test_dataloader
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        
+        self.tokenizer = tokenizer
         self.config = Config().get_config()
         self.visualizer = Visualizer()  
 
@@ -41,13 +42,15 @@ class SFTTrainer:
 
         # Mixed Precision Training
         self.scaler = GradScaler(enabled=( self.config["MAP"]["use_float16"]))
-
+        
+        #Using torch.compile for efficient training
         if( self.config["Optimizations"]["use_compile"]):
             self.model = torch.compile(self.model)
+        
         #load scheduler
         self.scheduler = scheduler
-
-
+        
+        self.save_model = SaveModel(self.config['Model']['save_model_path'])
             
     @torch.inference_mode()
     def evaluate(self):
@@ -55,11 +58,30 @@ class SFTTrainer:
         out = {}
         self.model.eval()
 
+        total_loss = 0.0
+        total_batches = 0
+        
+        
         for split in ['val']:
-            losses = torch.zeros(eval_iters := len(self.val_dataloader), device=self.device)
-            for k in range(len(self.val_dataloader)):
+            eval_steps = None
+            val_data_iterator = iter(self.val_dataloader)
+            eval_steps = self.config["Model"]["eval_steps"]
+            
+            if eval_steps is None or eval_steps == 0:
+                # If eval_steps is not set, use the length of the dataloader
+                eval_steps = len(self.val_dataloader)
+                
+            for k in range(eval_steps):  # Updated to use eval_steps instead of len(self.val_dataloader)
+                
+                try:
+                    batch = next(val_data_iterator)
+                except StopIteration:
+                    print(f"Resetting val iterator for step {k}")
+                    val_data_iterator = iter(self.val_dataloader)
+                    batch = next(val_data_iterator)
+                
                 with torch.autocast(device_type='cuda', dtype=torch.bfloat16 if  self.config["MAP"]["use_bfloat16"] or  self.config["MAP"]["use_float16"] else torch.float32):
-                    batch= next(self.train_dataloader)
+                    # batch= next(self.train_dataloader)
                     idx = batch['input_ids'].to(self.device)
                     targets = batch['labels'].to(self.device)
                     loss_mask = batch['loss_mask'].to(self.device)
@@ -70,8 +92,12 @@ class SFTTrainer:
                     loss = self.loss_fn(logits, targets)
                 loss = loss * loss_mask.view(-1)
                 loss = loss.mean()
-                # print('Val: ', loss.item())
-            out[split] = losses.mean()
+            
+                total_loss += loss.item()
+                total_batches += 1
+            
+        out[split] = total_loss / total_batches  # Average loss
+        
 
         self.model.train()
         return out
@@ -80,19 +106,29 @@ class SFTTrainer:
         
         # self.model.train()
         for epoch in range(self.epochs):
+            
+            train_iterator = iter(self.train_dataloader)
             for step in tqdm(range(len(self.train_dataloader))):
-
+                
                 self.total_steps = len(self.train_dataloader) * self.epochs
                 if (step  % self.eval_iters == 0 and step != 0) or step == self.total_steps - 1:
                     losses = self.evaluate()
-                    print(f"epoch {epoch}, step {step}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
+                    print(f"epoch {epoch}, step {step}: val loss {losses['val']:.4f}")
                     self.visualizer.log({
                         "val_loss": losses['val'],
                         
                     })
+                    
+                try:
+                    batch = next(train_iterator)
+                except StopIteration:
+                    print(f"Resetting train iterator for epoch {epoch + 1}: step {step}")
+                    train_iterator = iter(self.train_dataloader)
+                    batch = next(train_iterator)
+                
                 self.optimizer.zero_grad(set_to_none=True)
                 with torch.autocast(device_type='cuda', dtype=torch.bfloat16 if  self.config["MAP"]["use_bfloat16"] or  self.config["MAP"]["use_float16"] else torch.float16):
-                    batch= next(self.train_dataloader)
+                    # batch= next(self.train_dataloader)
                     idx = batch['input_ids'].to(self.device)
                     targets = batch['labels'].to(self.device)
                     loss_mask = batch['loss_mask'].to(self.device)
@@ -132,3 +168,10 @@ class SFTTrainer:
                     "lr": self.scheduler.get_last_lr()[0],
                     # 'grad_norm': total_norm_before.item(),
                 })
+                
+        print("Training completed!")
+        self.visualizer.close()
+        
+        # Save the model
+        self.save_model.save(self.model, self.tokenizer)
+        print("Model saved successfully!")

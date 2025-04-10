@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/tests/test_finetune.py", line 6, in <module>
-    from SFT.helper.dataset.prepare_dataset import PreprocessDataset
-  File "/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/SFT/helper/dataset/prepare_dataset.py", line 4, in <module>
-    from helper.load_config import Config
-ModuleNotFoundError: No module named 'helper'

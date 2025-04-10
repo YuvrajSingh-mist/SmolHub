@@ -37,7 +37,7 @@ preprocess_dataset = PreprocessDataset(dataset_path=dataset_path, tokenizer=toke
 train_dataloader, val_dataloader, test_dataloader = preprocess_dataset.prepare_dataset()
 
 #Initialize the Trainer
-sft_trainer = SFTTrainer(lora_model, train_dataloader, val_dataloader, test_dataloader, optimizer, None, scheduler)
+sft_trainer = SFTTrainer(lora_model, train_dataloader, val_dataloader, test_dataloader, optimizer, None, tokenizer, scheduler)
 
 #Train
 sft_trainer.train()

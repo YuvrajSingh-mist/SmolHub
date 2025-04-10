@@ -8,7 +8,7 @@ LoRA:
   alpha: 8
 Dataset:
     use_hf_dataset: True
-    dataset_path: stanfordnlp/imdb
+    dataset_path: MMEX/text-classification-dataset
     max_length: 512
     batch_size:  16
     num_workers:  4
@@ -24,7 +24,9 @@ huggingface:
 Model:
   epochs: 1
   eval_iters: 10
-
+  eval_steps: 0
+  save_model_path: "saved_model"
+  saved_model_name: 'model.pt'
 MAP:
   use_bfloat16:  False
   use_float16: False

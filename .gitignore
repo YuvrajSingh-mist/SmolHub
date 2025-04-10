@@ -1,7 +1,9 @@
 .env
 .pypirc
-wandb/
+
 dist/
 src/smolhub/__pycache__
 src/smolhub.egg-info
 notes.md
+saved_model
+wandb

@@ -1,7 +1,0 @@
-{"time":"2025-04-09T21:06:19.43777238Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/wandb/run-20250409_210619-uaujvwtv/logs/debug-core.log"}
-{"time":"2025-04-09T21:06:19.760611511Z","level":"INFO","msg":"created new stream","id":"uaujvwtv"}
-{"time":"2025-04-09T21:06:19.761180908Z","level":"INFO","msg":"stream: started","id":"uaujvwtv"}
-{"time":"2025-04-09T21:06:19.761228101Z","level":"INFO","msg":"writer: Do: started","stream_id":"uaujvwtv"}
-{"time":"2025-04-09T21:06:19.761288914Z","level":"INFO","msg":"handler: started","stream_id":"uaujvwtv"}
-{"time":"2025-04-09T21:06:19.761302114Z","level":"INFO","msg":"sender: started","stream_id":"uaujvwtv"}
-{"time":"2025-04-09T21:06:20.556000969Z","level":"INFO","msg":"Starting system monitor"}
