@@ -1,0 +1,39 @@
+project:
+  name: SFTrainer
+  author: Yuvraj Singh
+  version: 1.0
+
+LoRA:
+  rank: 4
+  alpha: 8
+Dataset:
+    use_hf_dataset: True
+    dataset_path: stanfordnlp/imdb
+    max_length: 512
+    batch_size:  16
+    num_workers:  4
+    shuffle:  True
+    drop_last: True
+    pin_memory:  True
+    persistent_workers:  True
+    type: "classification" #TODO Add Chat style and Instruction 
+   
+huggingface:
+  hf_token: "..."
+
+Model:
+  epochs: 1
+  eval_iters: 10
+
+MAP:
+  use_bfloat16:  False
+  use_float16: False
+
+Optimizations:
+  use_compile: False
+
+
+wandb:
+  project_name: "SFTrainer"
+  
+

@@ -1,12 +1,10 @@
-import torch
-import smolhub
-# from smolhub.helper.dataset.load_config import Config
 from smolhub.scripts.finetune import SFTTrainer
-from transformers import AutoTokenizer, AutoModelForCausalLM
-from smolhub.helper.scheduler import CustomLRScheduler
 from smolhub.scripts.lora import LoRAModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
 from smolhub.helper.dataset.dataset_main import PreprocessDataset
-from load_config import Config #Needs to be created
+from smolhub.helper.scheduler import CustomLRScheduler
+from tests.load_config import Config
+import torch
 
 model_id = "openai-community/gpt2"
 
@@ -26,9 +24,12 @@ if tokenizer.pad_token is None:
 
 model.resize_token_embeddings(len(tokenizer))
 
+
+
 lora_model = LoRAModel(model)
 optimizer = torch.optim.Adam(lora_model.parameters(), lr=2e-3)
 scheduler = CustomLRScheduler(optimizer, warmup_iters=100, lr_decay_iters=2000, min_lr=2e-5, max_lr=2e-3, _type="cosine")
+
 
 #Loading the dataset
 preprocess_dataset = PreprocessDataset(dataset_path=dataset_path, tokenizer=tokenizer)
@@ -39,4 +40,3 @@ sft_trainer = SFTTrainer(lora_model, train_dataloader, val_dataloader, test_data
 
 #Train
 sft_trainer.train()
-

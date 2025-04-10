@@ -1,7 +1,7 @@
 import torch
 from torchinfo import summary
 
-from src.smolhub.scripts.lora import ModelArgs
+from smolhub.scripts.lora import ModelArgs
 
 def print_model(model, dataloader):
     # lora_model = LoRAModel()

@@ -1,1 +1,5 @@
 .env
+wandb/
+dist/
+src/smolhub/__pycache__
+src/smolhub.egg-info

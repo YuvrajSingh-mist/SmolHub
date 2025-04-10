@@ -1,3 +1,16 @@
+# SmolHub
+
+A lightweight package for fine-tuning language models using LoRA (Low-Rank Adaptation).
+
+## Installation
+
+```bash
+pip install smolhub
+```
+
+## Usage
+
+```python
 import torch
 import smolhub
 # from smolhub.helper.dataset.load_config import Config
@@ -40,3 +53,28 @@ sft_trainer = SFTTrainer(lora_model, train_dataloader, val_dataloader, test_data
 #Train
 sft_trainer.train()
 
+
+```
+
+### Config File 
+
+```python 
+
+import yaml
+
+
+class Config:
+    def __init__(self, config_path='/mnt/c/Users/yuvra/OneDrive/Desktop/Work/pytorch/SmolHub/tests/config.yaml'):
+        self.config_path = config_path
+        self.config = self.load_config()
+
+    def load_config(self):
+        with open(self.config_path, "r") as f:
+            config = yaml.safe_load(f)
+        return config
+
+    def get_config(self):
+        return self.config
+
+
+```
