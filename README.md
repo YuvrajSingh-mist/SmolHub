@@ -49,27 +49,54 @@ trainer.train()
 SmolHub uses a YAML configuration file for experiment settings. A default config is created in your project directory:
 
 ```yaml
+
 project:
   name: SFTrainer
+  author: Yuvraj Singh
   version: 1.0
 
 LoRA:
-  rank: 4    # LoRA rank for weight updates
-  alpha: 8   # LoRA alpha parameter
+  rank: 4
+  alpha: 8
 
+Preference:
+  beta: 0.1
+  
 Dataset:
-  use_hf_dataset: true
-  dataset_path: "MMEX/text-classification-dataset"
-  type: "classification"  # Options: classification, pretraining, preference
-  batch_size: 16
-  max_length: 512
+    use_hf_dataset: True
+    dataset_path: trl-lib/ultrafeedback_binarized
+    max_length: 512
+    batch_size:  16
+    num_workers:  4
+    shuffle:  True
+    drop_last: True
+    pin_memory:  True
+    persistent_workers:  True
+    type: "classification" #TODO Add Chat style and Instruction 
+   
+huggingface:
+  hf_token: "..."
 
 Model:
+  type: 'preference'
   epochs: 1
-  eval_frequency: 100
-  save_path: "saved_model"
+  eval_iters: 10
+  eval_steps: 0
+  save_model_path: "saved_model"
+  saved_model_name: 'model.pt'
 
-# ... See documentation for full config options
+
+MAP:
+  use_bfloat16:  False
+  use_float16: False
+
+Optimizations:
+  use_compile: False
+
+
+wandb:
+  project_name: "SFTrainer"
+  
 ```
 
 ## Training Modes
