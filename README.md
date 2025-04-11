@@ -1,6 +1,17 @@
 # SmolHub
 
-A lightweight package for fine-tuning language models using LoRA (Low-Rank Adaptation).
+A lightweight and efficient package for training language models using Low-Rank Adaptation (LoRA). Designed for easy experimentation and research with minimal boilerplate.
+
+## Features
+
+- 🚀 **Multiple Training Paradigms**:
+  - Supervised Fine-tuning (SFT)
+  - Pretraining
+  - Preference Alignment (RLHF-style training)
+- 📦 **Easy Integration** with Hugging Face models
+- ⚡ **Efficient Training** with LoRA
+- 📊 **WandB Integration** for experiment tracking
+- 🔄 **Automatic Dataset Handling**
 
 ## Installation
 
@@ -8,101 +19,87 @@ A lightweight package for fine-tuning language models using LoRA (Low-Rank Adapt
 pip install smolhub
 ```
 
-## Usage
-
-A default config file is created in the user project directory if not already there
-
-### Example Config
+## Quickstart
 
 ```python
-project:
-  name: SFTrainer
-  author: Yuvraj Singh
-  version: 1.0
-
-LoRA:
-  rank: 4
-  alpha: 8
-Dataset:
-    use_hf_dataset: True
-    dataset_path: MMEX/text-classification-dataset
-    max_length: 512
-    batch_size:  16
-    num_workers:  4
-    shuffle:  True
-    drop_last: True
-    pin_memory:  True
-    persistent_workers:  True
-    type: "classification" #TODO Add Chat style and Instruction 
-   
-huggingface:
-  hf_token: "..."
-
-Model:
-  epochs: 1
-  eval_iters: 10
-  eval_steps: 0
-  save_model_path: "saved_model"
-  saved_model_name: 'model.pt'
-MAP:
-  use_bfloat16:  False
-  use_float16: False
-
-Optimizations:
-  use_compile: False
-
-
-wandb:
-  project_name: "SFTrainer"
-  
-
-```
-
-```python
-
 from smolhub.scripts.finetune import SFTTrainer
 from smolhub.scripts.lora import LoRAModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from smolhub.helper.dataset.dataset_main import PreprocessDataset
-from smolhub.helper.scheduler import CustomLRScheduler
-# from load_config import Config
 import torch
-from smolhub.helper.dataset.load_config import Config
 
+# Load model and tokenizer
 model_id = "openai-community/gpt2"
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+model = AutoModelForCausalLM.from_pretrained(model_id)
 
-config = Config().get_config()
-dataset_path = config["Dataset"]["dataset_path"]
-
-tokenizer = AutoTokenizer.from_pretrained(model_id, token=config['huggingface']['hf_token'])
-model = AutoModelForCausalLM.from_pretrained(model_id, device_map="auto", token=config['huggingface']['hf_token'])
-
-if tokenizer.pad_token is None:
-    # Set the pad token to the eos token if it doesn't exist
-    tokenizer.add_special_tokens({'pad_token': '[PAD]'})
-    # tokenizer.pad_token = tokenizer.eos_token
-    
-
-    print("Setting pad token as PAD token ")
-
-model.resize_token_embeddings(len(tokenizer))
-
-
-
+# Setup LoRA
 lora_model = LoRAModel(model)
-optimizer = torch.optim.Adam(lora_model.parameters(), lr=2e-3)
-scheduler = CustomLRScheduler(optimizer, warmup_iters=100, lr_decay_iters=2000, min_lr=2e-5, max_lr=2e-3, _type="cosine")
 
-
-#Loading the dataset
-preprocess_dataset = PreprocessDataset(dataset_path=dataset_path, tokenizer=tokenizer)
-train_dataloader, val_dataloader, test_dataloader = preprocess_dataset.prepare_dataset()
-
-#Initialize the Trainer
-sft_trainer = SFTTrainer(lora_model, train_dataloader, val_dataloader, test_dataloader, optimizer, None, tokenizer, scheduler)
-
-#Train
-sft_trainer.train()
-
+# Train with minimal setup
+trainer = SFTTrainer(
+    model=lora_model,
+    dataset_path="your_dataset",  # HF dataset or local file
+    tokenizer=tokenizer
+)
+trainer.train()
 ```
+
+## Configuration
+
+SmolHub uses a YAML configuration file for experiment settings. A default config is created in your project directory:
+
+```yaml
+project:
+  name: SFTrainer
+  version: 1.0
+
+LoRA:
+  rank: 4    # LoRA rank for weight updates
+  alpha: 8   # LoRA alpha parameter
+
+Dataset:
+  use_hf_dataset: true
+  dataset_path: "MMEX/text-classification-dataset"
+  type: "classification"  # Options: classification, pretraining, preference
+  batch_size: 16
+  max_length: 512
+
+Model:
+  epochs: 1
+  eval_frequency: 100
+  save_path: "saved_model"
+
+# ... See documentation for full config options
+```
+
+## Training Modes
+
+### Supervised Fine-tuning
+```python
+trainer = SFTTrainer(model, dataset_path="classification_dataset")
+```
+
+### Pretraining
+```python
+from smolhub.scripts.pretrain import PreTrainer
+trainer = PreTrainer(model, dataset_path="text_corpus")
+```
+
+### Preference Alignment
+```python
+from smolhub.scripts.align import PreferenceTrainer
+trainer = PreferenceTrainer(model, dataset_path="preference_pairs")
+```
+
+## Documentation
+
+For detailed documentation and examples, visit our [documentation](https://github.com/yourusername/smolhub/wiki).
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+MIT License
 
