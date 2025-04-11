@@ -2,12 +2,15 @@
 from datasets import load_dataset
 
 from smolhub.helper.dataset.prepare_dataset import SFTDataset, convert_dataset_to_dataloader
+from smolhub.helper.dataset.prepare_dataset_pretrain import PretrainDataset, convert_dataset_to_dataloader_pretrain
+from smolhub.helper.dataset.prepare_dataset_preference_alignment import DPODataset, convert_dataset_to_dataloader_preference
+
 from smolhub.helper.dataset.load_config import Config
 
 config = Config().get_config()
 
 class PreprocessDataset:
-    def __init__(self, dataset_path=None, tokenizer=None):
+    def __init__(self, dataset_path=None, tokenizer=None, device=None):
         self.dataset_path = dataset_path
         self.use_hf_dataset = config["Dataset"]["use_hf_dataset"]
         # self.tokenizer_path = config["Model"]["tokenizer"]
@@ -15,7 +18,7 @@ class PreprocessDataset:
         self.val = None
         self.test = None
         self.tokenizer = tokenizer
-       
+        self.device=device
         
     def check_for_split(self, dataset):
         # Initialize all splits to None
@@ -106,51 +109,160 @@ class PreprocessDataset:
     def prepare_dataset(self):
         
         if(self.use_hf_dataset):
-            self.dataset = load_dataset(self.dataset_path, token=config["huggingface"]["hf_token"])
-            # print(self.dataset)
-            # self.check_for_required_columns(self.dataset)
-            self.labels = self.get_unique_labels(self.dataset)
-            self.check_for_split(self.dataset)
-            self.check_for_required_columns(self.train)
-            self.check_for_required_columns(self.test)
-            self.check_for_required_columns(self.val)
             
+            if(config["Model"]["type"] == "pretrain"):
+                self.dataset = load_dataset(self.dataset_path, token=config["huggingface"]["hf_token"])
+                # print(self.dataset)
+                # self.check_for_required_columns(self.dataset)
+                self.labels = self.get_unique_labels(self.dataset)
+                self.check_for_split(self.dataset)
+                self.check_for_required_columns(self.train)
+                self.check_for_required_columns(self.test)
+                self.check_for_required_columns(self.val)
+                
+                
+                # self.train = self.train.map(self.tokenize)
+                # self.val = self.val.map(self.tokenize)
+                # self.test = self.test.map(self.tokenize)
+                
+                # self.train = self.train.remove_columns(["text"])
+                # self.val = self.val.remove_columns(["text"])
+                # self.test = self.test.remove_columns(["text"])
+                
+                train_dataloader = convert_dataset_to_dataloader_pretrain(self.train, self.tokenizer, self.labels)
+                val_dataloader = convert_dataset_to_dataloader_pretrain(self.val, self.tokenizer , self.labels)
+                test_dataloader = convert_dataset_to_dataloader_pretrain(self.test, self.tokenizer   , self.labels)
+                
+                return train_dataloader, val_dataloader, test_dataloader
             
-            # self.train = self.train.map(self.tokenize)
-            # self.val = self.val.map(self.tokenize)
-            # self.test = self.test.map(self.tokenize)
-            
-            # self.train = self.train.remove_columns(["text"])
-            # self.val = self.val.remove_columns(["text"])
-            # self.test = self.test.remove_columns(["text"])
-            
-            train_dataloader = convert_dataset_to_dataloader(self.train, self.tokenizer, self.labels)
-            val_dataloader = convert_dataset_to_dataloader(self.val, self.tokenizer , self.labels)
-            test_dataloader = convert_dataset_to_dataloader(self.test, self.tokenizer   , self.labels)
-            
-            return train_dataloader, val_dataloader, test_dataloader   
-        # If not using HF dataset, we are using a custom dataset
-        # Just a full csv or json is required with train key value pair
-        else:
-            self.sft_dataset = SFTDataset(self.dataset_path)
-            # self.check_for_required_columns(self.sft_dataset)
-            self.labels = self.get_unique_labels(self.sft_dataset)
-            self.check_for_split(self.sft_dataset)
-            self.check_for_required_columns(self.train)
-            self.check_for_required_columns(self.test)
-            self.check_for_required_columns(self.val)
-            
-            # self.train = self.train.map(self.tokenize)
-            # self.val = self.val.map(self.tokenize)
-            # self.test = self.test.map(self.tokenize)
-            
-            train_dataloader = convert_dataset_to_dataloader(self.train, self.tokenizer, self.labels)
-            val_dataloader = convert_dataset_to_dataloader(self.val, self.tokenizer, self.labels)
-            test_dataloader = convert_dataset_to_dataloader(self.test, self.tokenizer, self.labels)
-            
-            return train_dataloader, val_dataloader, test_dataloader
+            elif(config["Model"]["type"]  == "sft"):
+                self.dataset = load_dataset(self.dataset_path, token=config["huggingface"]["hf_token"])
+                # print(self.dataset)
+                # self.check_for_required_columns(self.dataset)
+                self.labels = self.get_unique_labels(self.dataset)
+                self.check_for_split(self.dataset)
+                self.check_for_required_columns(self.train)
+                self.check_for_required_columns(self.test)
+                self.check_for_required_columns(self.val)
+                
+                
+                # self.train = self.train.map(self.tokenize)
+                # self.val = self.val.map(self.tokenize)
+                # self.test = self.test.map(self.tokenize)
+                
+                # self.train = self.train.remove_columns(["text"])
+                # self.val = self.val.remove_columns(["text"])
+                # self.test = self.test.remove_columns(["text"])
+                
+                train_dataloader = convert_dataset_to_dataloader(self.train, self.tokenizer, self.labels)
+                val_dataloader = convert_dataset_to_dataloader(self.val, self.tokenizer , self.labels)
+                test_dataloader = convert_dataset_to_dataloader(self.test, self.tokenizer   , self.labels)
+                
+                return train_dataloader, val_dataloader, test_dataloader   
 
-    
+            
+            elif(config["Model"]["type"] == "preference"):
+                self.dataset = load_dataset(self.dataset_path, token=config["huggingface"]["hf_token"])
+                # print(self.dataset)
+                # self.check_for_required_columns(self.dataset)
+                self.labels = self.get_unique_labels(self.dataset)
+                self.check_for_split(self.dataset)
+                self.check_for_required_columns(self.train)
+                self.check_for_required_columns(self.test)
+                self.check_for_required_columns(self.val)
+                
+                
+                # self.train = self.train.map(self.tokenize)
+                # self.val = self.val.map(self.tokenize)
+                # self.test = self.test.map(self.tokenize)
+                
+                # self.train = self.train.remove_columns(["text"])
+                # self.val = self.val.remove_columns(["text"])
+                # self.test = self.test.remove_columns(["text"])
+                
+                train_dataloader = convert_dataset_to_dataloader_preference(self.train, self.tokenizer, self.device)
+                val_dataloader = convert_dataset_to_dataloader_preference(self.val, self.tokenizer , self.device)
+                test_dataloader = convert_dataset_to_dataloader_preference(self.test, self.tokenizer   , self.device)
+                
+                return train_dataloader, val_dataloader, test_dataloader
+            
+            
+        else:
+            
+            
+            if(config["Model"]["type"]  == "pretrain"):
+                 
+                self.dataset = PretrainDataset(self.dataset_path, token=config["huggingface"]["hf_token"])
+                # print(self.dataset)
+                # self.check_for_required_columns(self.dataset)
+                self.labels = self.get_unique_labels(self.dataset)
+                self.check_for_split(self.dataset)
+                self.check_for_required_columns(self.train)
+                self.check_for_required_columns(self.test)
+                self.check_for_required_columns(self.val)
+                
+                
+                # self.train = self.train.map(self.tokenize)
+                # self.val = self.val.map(self.tokenize)
+                # self.test = self.test.map(self.tokenize)
+                
+                # self.train = self.train.remove_columns(["text"])
+                # self.val = self.val.remove_columns(["text"])
+                # self.test = self.test.remove_columns(["text"])
+                
+                train_dataloader = convert_dataset_to_dataloader_pretrain(self.train, self.tokenizer, self.labels)
+                val_dataloader = convert_dataset_to_dataloader_pretrain(self.val, self.tokenizer , self.labels)
+                test_dataloader = convert_dataset_to_dataloader_pretrain(self.test, self.tokenizer   , self.labels)
+                
+                return train_dataloader, val_dataloader, test_dataloader   
+            
+     
+            elif(config["Model"]["type"]  == "sft"):
+
+                self.sft_dataset = SFTDataset(self.dataset_path)
+                # self.check_for_required_columns(self.sft_dataset)
+                self.labels = self.get_unique_labels(self.sft_dataset)
+                self.check_for_split(self.sft_dataset)
+                self.check_for_required_columns(self.train)
+                self.check_for_required_columns(self.test)
+                self.check_for_required_columns(self.val)
+                    
+                # self.test = self.test.map(self.tokenize)
+                
+                train_dataloader = convert_dataset_to_dataloader(self.train, self.tokenizer, self.labels)
+                val_dataloader = convert_dataset_to_dataloader(self.val, self.tokenizer, self.labels)
+                test_dataloader = convert_dataset_to_dataloader(self.test, self.tokenizer, self.labels)
+                
+                return train_dataloader, val_dataloader, test_dataloader
+
+
+            elif(config["Model"]["type"] == "preference"):
+                self.sft_dataset = DPODataset(self.dataset_path)
+                # print(self.dataset)
+                # self.check_for_required_columns(self.dataset)
+                self.labels = self.get_unique_labels(self.dataset)
+                self.check_for_split(self.dataset)
+                self.check_for_required_columns(self.train)
+                self.check_for_required_columns(self.test)
+                self.check_for_required_columns(self.val)
+                
+                
+                # self.train = self.train.map(self.tokenize)
+                # self.val = self.val.map(self.tokenize)
+                # self.test = self.test.map(self.tokenize)
+                
+                # self.train = self.train.remove_columns(["text"])
+                # self.val = self.val.remove_columns(["text"])
+                # self.test = self.test.remove_columns(["text"])
+                
+                train_dataloader = convert_dataset_to_dataloader_preference(self.train, self.tokenizer, self.device)
+                val_dataloader = convert_dataset_to_dataloader_preference(self.val, self.tokenizer , self.device)
+                test_dataloader = convert_dataset_to_dataloader_preference(self.test, self.tokenizer   , self.device)
+                
+                return train_dataloader, val_dataloader, test_dataloader
+            
+            
+            
     
     def check_for_required_columns(self, dataset):
         required_columns = ["text", "label"]
@@ -171,3 +283,5 @@ class PreprocessDataset:
                 labels.append(example['label'])
         return labels
         
+
+

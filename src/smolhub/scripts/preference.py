@@ -7,14 +7,63 @@ from smolhub.helper.count_parameters import count_parameters
 from tqdm import tqdm
 from smolhub.helper.visualize import Visualizer
 # from tests.print_model_details import print_model
+import torch.nn as nn
+
+class DPO:
+        def __init__(self, ref_model, sft_model, device, beta, tokenizer):
+
+
+            self.ref_model = ref_model
+            self.sft_model = sft_model
+            self.device=device
+            self.beta = beta
+            self.tokenizer = tokenizer
+            self.ref_model.eval()
 
 
 
+        def DPOloss(self, datapoint):
 
-class SFTTrainer:
-    def __init__(self, device, model, train_dataloader, val_dataloader, test_dataloader, optimizer, loss_fn, tokenizer, scheduler=None):
+            self.win_prompt = datapoint['chosen']
+            self.lose_prompt = datapoint['rejected']
 
-        self.model = model
+        #Token level aggregation 
+            with torch.no_grad():
+                self.win_log_ref = torch.nn.functional.log_softmax(self.ref_model(**self.win_prompt).logits, dim=-1)
+                self.win_log_ref = torch.gather(self.win_log_ref, -1, self.win_prompt['input_ids'].unsqueeze(-1)).squeeze(-1) #Why gather? Because its not token level stuff we care about but sequence level. Hence, we will sum up the probs of every token to get seq level but we don't want to do it for attention maksed tokens too. Hence we we will use gather() to get the ids and multiply the probs by the masked out tokens indexes.
+                # print("Gather: ", self.chosen_log_probs)
+                self.win_log_ref = self.win_log_ref * (self.win_prompt['attention_mask'])
+                self.win_log_ref = self.win_log_ref.sum(dim=-1)
+                
+                self.lose_log_ref = torch.nn.functional.log_softmax(self.ref_model(**self.lose_prompt).logits, dim=-1)
+                self.lose_log_ref = torch.gather(self.lose_log_ref, -1, self.lose_prompt['input_ids'].unsqueeze(-1)).squeeze(-1) #Why gather? Because its not token level stuff we care about but sequence level. Hence, we will sum up the probs of every token to get seq level but we don't want to do it for attention maksed tokens too. Hence we we will use gather() to get the ids and multiply the probs by the masked out tokens indexes.
+                # print("Gather: ", self.chosen_log_probs)
+                self.lose_log_ref = self.lose_log_ref * (self.lose_prompt['attention_mask'])
+                self.lose_log_ref = self.lose_log_ref.sum(dim=-1)
+            
+            self.win_log_sft = torch.nn.functional.log_softmax(self.sft_model(**self.win_prompt).logits, dim=-1)
+            self.win_log_sft = torch.gather(self.win_log_sft, -1, self.win_prompt['input_ids'].unsqueeze(-1)).squeeze(-1) #Why gather? Because its not token level stuff we care about but sequence level. Hence, we will sum up the probs of every token to get seq level but we don't want to do it for attention maksed tokens too. Hence we we will use gather() to get the ids and multiply the probs by the masked out tokens indexes.
+            self.win_log_sft = self.win_log_sft * (self.win_prompt['attention_mask'])
+            self.win_log_sft = self.win_log_sft.sum(dim=-1)
+            
+            self.lose_log_sft = torch.nn.functional.log_softmax(self.sft_model(**self.lose_prompt).logits, dim=-1)
+            self.lose_log_sft = torch.gather(self.lose_log_sft, -1, self.lose_prompt['input_ids'].unsqueeze(-1)).squeeze(-1) #Why gather? Because its not token level stuff we care about but sequence level. Hence, we will sum up the probs of every token to get seq level but we don't want to do it for attention maksed tokens too. Hence we we will use gather() to get the ids and multiply the probs by the masked out tokens indexes.
+            self.lose_log_sft = self.lose_log_sft * (self.lose_prompt['attention_mask'])
+            self.lose_log_sft = self.lose_log_sft.sum(dim=-1)
+
+            self.diff1 = self.win_log_sft - self.win_log_ref
+            self.diff2 = self.lose_log_sft - self.lose_log_ref
+
+            self.final = -nn.functional.logsigmoid(self.beta *(self.diff1 - self.diff2)).mean()
+
+            # sft_model.train()
+            return self.final
+        
+class PreferenceAlignmentTrainer:
+    def __init__(self, device, ref_model, sft_model, train_dataloader, val_dataloader, test_dataloader, optimizer, loss_fn, tokenizer, scheduler=None):
+
+        self.ref_model = ref_model
+        self.sft_model = sft_model
         self.train_dataloader = train_dataloader
         self.val_dataloader = val_dataloader
         self.test_dataloader = test_dataloader
@@ -24,39 +73,41 @@ class SFTTrainer:
         self.visualizer = Visualizer()  
 
         # self.device = 'cpu'
-        self.model.to(self.device)
+        self.ref_model.to(self.device)
+        self.sft_model.to(self.device)
         self.optimizer = optimizer
         self.loss_fn = loss_fn
         self.epochs =  self.config["Model"]["epochs"]
-        # self.model.train()
+       
         self.eval_iters =  self.config["Model"]["eval_iters"]
         
         #None cus there is loss mask to multiply it with
-        self.loss_fn = torch.nn.CrossEntropyLoss(reduction='none')
-        
+        self.loss_fn = DPO(ref_model, sft_model, device, self.config["Preference"]["beta"], tokenizer)
         #Getting model details and showing to the user
         # print_model(self.model, self.train_dataloader)
       
-        print("Total trainable parameters:", count_parameters(self.model) ," which is: " , (count_parameters(self.model) / 163037184 )*100 , "%\ of" , 163037184 , "trainable params")
-        print("\n")
-
         # Mixed Precision Training
         self.scaler = GradScaler(enabled=( self.config["MAP"]["use_float16"]))
         
         #Using torch.compile for efficient training
         if( self.config["Optimizations"]["use_compile"]):
-            self.model = torch.compile(self.model)
-        
+            self.sft_model = torch.compile(self.sft_model)
+            self.ref_model = torch.compile(self.ref_model)
         #load scheduler
         self.scheduler = scheduler
         
         self.save_model = SaveModel(self.config['Model']['save_model_path'])
-            
+    
+    
+    
+
+
+  
     @torch.inference_mode()
     def evaluate(self):
         
         out = {}
-        self.model.eval()
+        self.sft_model.eval()
 
         total_loss = 0.0
         total_batches = 0
@@ -82,24 +133,16 @@ class SFTTrainer:
                 
                 with torch.autocast(device_type='cuda', dtype=torch.bfloat16 if  self.config["MAP"]["use_bfloat16"] or  self.config["MAP"]["use_float16"] else torch.float32):
                     # batch= next(self.train_dataloader)
-                    idx = batch['input_ids'].to(self.device)
-                    targets = batch['labels'].to(self.device)
-                    loss_mask = batch['loss_mask'].to(self.device)
-                    logits = self.model(idx).logits
-                    batch_size, block_size, embeddings_dims = logits.shape
-                    logits = logits.view(batch_size*block_size, embeddings_dims)
-                    targets = targets.view(batch_size * block_size)
-                    loss = self.loss_fn(logits, targets)
-                loss = loss * loss_mask.view(-1)
-                loss = loss.mean()
-            
+                 
+                    loss = self.loss_fn.DPOloss(batch)
+                    
                 total_loss += loss.item()
                 total_batches += 1
             
         out[split] = total_loss / total_batches  # Average loss
         
 
-        self.model.train()
+        self.sft_model.train()
         return out
 
     def train(self):
@@ -128,22 +171,8 @@ class SFTTrainer:
                 
                 self.optimizer.zero_grad(set_to_none=True)
                 with torch.autocast(device_type='cuda', dtype=torch.bfloat16 if  self.config["MAP"]["use_bfloat16"] or  self.config["MAP"]["use_float16"] else torch.float16):
-                    # batch= next(self.train_dataloader)
-                    idx = batch['input_ids'].to(self.device)
-                    targets = batch['labels'].to(self.device)
-                    loss_mask = batch['loss_mask'].to(self.device)
-                    
-                    logits = self.model(idx).logits
-                    # print(logits)
-                    batch_size, block_size, embeddings_dims = logits.shape
-                    logits = logits.view(batch_size*block_size, embeddings_dims)
-                    targets = targets.view(batch_size * block_size)
-                    loss = self.loss_fn(logits, targets)
-                    # print(loss_mask)
-                    # print(idx)
-                    # print(targets)
-                    loss = loss * loss_mask.view(-1)
-                    loss = loss.mean()
+                  
+                    loss = self.loss_fn.DPOloss(batch)
                 
                 print('Train: ', loss.item())
                 loss.requires_grad_(True)
@@ -173,5 +202,5 @@ class SFTTrainer:
         self.visualizer.close()
         
         # Save the model
-        self.save_model.save(self.model, self.tokenizer)
+        self.save_model.save(self.sft_model, self.tokenizer)
         print("Model saved successfully!")

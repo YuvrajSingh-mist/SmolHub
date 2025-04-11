@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="smolhub",
-    version="0.6.4",
+    version="0.6.5",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
     package_data={

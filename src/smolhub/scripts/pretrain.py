@@ -9,9 +9,7 @@ from smolhub.helper.visualize import Visualizer
 # from tests.print_model_details import print_model
 
 
-
-
-class SFTTrainer:
+class PreTrainer:
     def __init__(self, device, model, train_dataloader, val_dataloader, test_dataloader, optimizer, loss_fn, tokenizer, scheduler=None):
 
         self.model = model
