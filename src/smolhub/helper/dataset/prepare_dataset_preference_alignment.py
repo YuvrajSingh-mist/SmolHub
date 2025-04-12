@@ -77,7 +77,7 @@ def convert_dataset_to_dataloader_preference(dataset, tokenizer, device):
   
     return dataloader
 
-class DPODataset(Dataset):
+class PreferenceDataset(Dataset):
     def __init__(self, dataset_path):
         self.dataset_path = dataset_path
         self.dataset = _load_dataset(dataset_path)

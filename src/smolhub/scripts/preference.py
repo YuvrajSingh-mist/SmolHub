@@ -82,10 +82,9 @@ class PreferenceAlignmentTrainer:
         self.eval_iters =  self.config["Model"]["eval_iters"]
         
         #None cus there is loss mask to multiply it with
-        self.loss_fn = DPO(ref_model, sft_model, device, self.config["Preference"]["beta"], tokenizer)
-        #Getting model details and showing to the user
-        # print_model(self.model, self.train_dataloader)
-      
+        if(self.config['Training']['type'] == 'DPO'):
+            self.loss_fn = DPO(ref_model, sft_model, device, self.config["Training"]["beta"], tokenizer)
+        
         # Mixed Precision Training
         self.scaler = GradScaler(enabled=( self.config["MAP"]["use_float16"]))
         

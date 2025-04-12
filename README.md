@@ -77,8 +77,11 @@ Dataset:
 huggingface:
   hf_token: "..."
 
-Model:
+Training: 
   type: 'preference'
+
+Model:
+ 
   epochs: 1
   eval_iters: 10
   eval_steps: 0

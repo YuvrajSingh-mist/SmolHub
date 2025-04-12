@@ -3,7 +3,7 @@ from datasets import load_dataset
 
 from smolhub.helper.dataset.prepare_dataset import SFTDataset, convert_dataset_to_dataloader
 from smolhub.helper.dataset.prepare_dataset_pretrain import PretrainDataset, convert_dataset_to_dataloader_pretrain
-from smolhub.helper.dataset.prepare_dataset_preference_alignment import DPODataset, convert_dataset_to_dataloader_preference
+from smolhub.helper.dataset.prepare_dataset_preference_alignment import PreferenceDataset, convert_dataset_to_dataloader_preference
 
 from smolhub.helper.dataset.load_config import Config
 
@@ -110,7 +110,7 @@ class PreprocessDataset:
         
         if(self.use_hf_dataset):
             
-            if(config["Model"]["type"] == "pretrain"):
+            if(config["Training"]["mode"] == "pretrain"):
                 self.dataset = load_dataset(self.dataset_path, token=config["huggingface"]["hf_token"])
                 # print(self.dataset)
                 # self.check_for_required_columns(self.dataset)
@@ -135,7 +135,7 @@ class PreprocessDataset:
                 
                 return train_dataloader, val_dataloader, test_dataloader
             
-            elif(config["Model"]["type"]  == "sft"):
+            elif(config["Training"]["mode"]  == "sft"):
                 self.dataset = load_dataset(self.dataset_path, token=config["huggingface"]["hf_token"])
                 # print(self.dataset)
                 # self.check_for_required_columns(self.dataset)
@@ -161,12 +161,12 @@ class PreprocessDataset:
                 return train_dataloader, val_dataloader, test_dataloader   
 
             
-            elif(config["Model"]["type"] == "preference"):
-                self.dataset = load_dataset(self.dataset_path, token=config["huggingface"]["hf_token"])
+            elif(config["Training"]["mode"] == "preference"):
+                self.pref_dataset = load_dataset(self.dataset_path, token=config["huggingface"]["hf_token"])
                 # print(self.dataset)
                 # self.check_for_required_columns(self.dataset)
-                self.labels = self.get_unique_labels(self.dataset)
-                self.check_for_split(self.dataset)
+                self.labels = self.get_unique_labels(self.pref_dataset)
+                self.check_for_split(self.pref_dataset)
                 self.check_for_required_columns(self.train)
                 self.check_for_required_columns(self.test)
                 self.check_for_required_columns(self.val)
@@ -190,7 +190,7 @@ class PreprocessDataset:
         else:
             
             
-            if(config["Model"]["type"]  == "pretrain"):
+            if(config["Training"]["mode"]  == "pretrain"):
                  
                 self.dataset = PretrainDataset(self.dataset_path, token=config["huggingface"]["hf_token"])
                 # print(self.dataset)
@@ -217,7 +217,7 @@ class PreprocessDataset:
                 return train_dataloader, val_dataloader, test_dataloader   
             
      
-            elif(config["Model"]["type"]  == "sft"):
+            elif(config["Training"]["mode"]  == "sft"):
 
                 self.sft_dataset = SFTDataset(self.dataset_path)
                 # self.check_for_required_columns(self.sft_dataset)
@@ -236,12 +236,12 @@ class PreprocessDataset:
                 return train_dataloader, val_dataloader, test_dataloader
 
 
-            elif(config["Model"]["type"] == "preference"):
-                self.sft_dataset = DPODataset(self.dataset_path)
+            elif(config["Training"]["mode"] == "preference"):
+                self.pref_dataset = PreferenceDataset(self.dataset_path)
                 # print(self.dataset)
-                # self.check_for_required_columns(self.dataset)
-                self.labels = self.get_unique_labels(self.dataset)
-                self.check_for_split(self.dataset)
+                # self.check_for_required_columns(self.pref_dataset)
+                self.labels = self.get_unique_labels(self.pref_dataset)
+                self.check_for_split(self.pref_dataset)
                 self.check_for_required_columns(self.train)
                 self.check_for_required_columns(self.test)
                 self.check_for_required_columns(self.val)

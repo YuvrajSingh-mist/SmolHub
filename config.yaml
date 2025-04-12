@@ -7,9 +7,12 @@ LoRA:
   rank: 4
   alpha: 8
 
-Preference:
+
+Training:
+  mode: 'preference' #sft/pretrain
+  type: 'DPO' # DPO/ORPO/SimPO (none for sft and pretraining)
   beta: 0.1
-  
+
 Dataset:
     use_hf_dataset: True
     dataset_path: trl-lib/ultrafeedback_binarized
@@ -26,7 +29,7 @@ huggingface:
   hf_token: "..."
 
 Model:
-  type: 'preference'
+
   epochs: 1
   eval_iters: 10
   eval_steps: 0
