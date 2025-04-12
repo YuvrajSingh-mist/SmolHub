@@ -7,7 +7,7 @@ A lightweight and efficient package for training language models using Low-Rank 
 - 🚀 **Multiple Training Paradigms**:
   - Supervised Fine-tuning (SFT)
   - Pretraining
-  - Preference Alignment (RLHF-style training)
+  - Preference Alignment 
 - 📦 **Easy Integration** with Hugging Face models
 - ⚡ **Efficient Training** with LoRA
 - 📊 **WandB Integration** for experiment tracking
