@@ -1,0 +1,32 @@
+------------------------------------------------Step: 500--------------------------------------------
+
+Prompt: Hello! Myself an AI Assistant. How are you? 
+
+Top-K Generated Text: [CLS] इनमें के बाद ‘आल द्वारा किया और होता नहीं है।[SEP]
+
+Beam Search Text: [CLS] उन्होंने कहा, ‘‘हम के साथ भी एक के लिए एक ही नहीं है।[SEP]
+
+------------------------------------------------Step: 500--------------------------------------------
+
+Prompt: My name is Khan 
+
+Top-K Generated Text: [CLS] क्या हुआ।[SEP]
+
+Beam Search Text: [CLS][SEP]
+
+------------------------------------------------Step: 500--------------------------------------------
+
+Prompt: How are you? 
+
+Top-K Generated Text: [CLS] मैं कोई है.[SEP]
+
+Beam Search Text: [CLS] क्या[SEP]
+
+------------------------------------------------Step: 500--------------------------------------------
+
+Prompt: The AI will take our jobs ahhh! 
+
+Top-K Generated Text: [CLS] तो क्या नहीं है कि एक काफी काम हुआ.[SEP]
+
+Beam Search Text: [CLS] उन्होंने कहा, ‘‘मैं भी नहीं है।[SEP]
+

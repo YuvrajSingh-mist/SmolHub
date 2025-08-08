@@ -1,0 +1,32 @@
+------------------------------------------------Step: 2500--------------------------------------------
+
+Prompt: Hello! Myself an AI Assistant. How are you? 
+
+Top-K Generated Text: [CLS] क्या तुम्हे इब्रानी का हिस्सा नहीं है .[SEP]
+
+Beam Search Text: [CLS] क्या वह मेरे पास है?[SEP]
+
+------------------------------------------------Step: 2500--------------------------------------------
+
+Prompt: My name is Khan 
+
+Top-K Generated Text: [CLS] मेरा पिता[SEP]
+
+Beam Search Text: [CLS] मेरे पिता हैं।[SEP]
+
+------------------------------------------------Step: 2500--------------------------------------------
+
+Prompt: How are you? 
+
+Top-K Generated Text: [CLS] क्या है?[SEP]
+
+Beam Search Text: [CLS] क्या है?[SEP]
+
+------------------------------------------------Step: 2500--------------------------------------------
+
+Prompt: The AI will take our jobs ahhh! 
+
+Top-K Generated Text: [CLS] आईएलएलएल अपने-अपने अपने व्यवसाय की जाँच करना चाहती है जब हम अपनाों को पसंद करें।[SEP]
+
+Beam Search Text: [CLS] हम अपने आप को अपने घर में ले जाएंगे[SEP]
+

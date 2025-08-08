@@ -1,0 +1,32 @@
+------------------------------------------------Step: 1500--------------------------------------------
+
+Prompt: Hello! Myself an AI Assistant. How are you? 
+
+Top-K Generated Text: [CLS] उनके पिता मेरे पुत्र और क्या कहा कि तुम आप उसे झूठाया करते हैं?[SEP]
+
+Beam Search Text: [CLS] वह क्या है?[SEP]
+
+------------------------------------------------Step: 1500--------------------------------------------
+
+Prompt: My name is Khan 
+
+Top-K Generated Text: [CLS] मैं फिर से...[SEP]
+
+Beam Search Text: [CLS] मेरी मां![SEP]
+
+------------------------------------------------Step: 1500--------------------------------------------
+
+Prompt: How are you? 
+
+Top-K Generated Text: [CLS] आप करें या कौन हो?[SEP]
+
+Beam Search Text: [CLS] आप जानते हैं?[SEP]
+
+------------------------------------------------Step: 1500--------------------------------------------
+
+Prompt: The AI will take our jobs ahhh! 
+
+Top-K Generated Text: [CLS] हम भी हम के सामने क्या हो सकते हैं[SEP]
+
+Beam Search Text: [CLS] हम इस तरह के बारे में सोचते हैं[SEP]
+

@@ -1,0 +1,32 @@
+------------------------------------------------Step: 6500--------------------------------------------
+
+Prompt: Hello! Myself an AI Assistant. How are you? 
+
+Top-K Generated Text: [CLS] """उनके अलावा, इस बात एक ईसाई प्रोफेसर को भेज करके"""[SEP]
+
+Beam Search Text: [CLS] हे मेरे पिता![SEP]
+
+------------------------------------------------Step: 6500--------------------------------------------
+
+Prompt: My name is Khan 
+
+Top-K Generated Text: [CLS] मेरा नाम खान है[SEP]
+
+Beam Search Text: [CLS] मेरा नाम है खान[SEP]
+
+------------------------------------------------Step: 6500--------------------------------------------
+
+Prompt: How are you? 
+
+Top-K Generated Text: [CLS] आप कैसे हो?[SEP]
+
+Beam Search Text: [CLS] आप कैसे हैं?[SEP]
+
+------------------------------------------------Step: 6500--------------------------------------------
+
+Prompt: The AI will take our jobs ahhh! 
+
+Top-K Generated Text: [CLS] क्या हम अपने कामों को पूरा करवाएंगे?[SEP]
+
+Beam Search Text: [CLS] आइए हम अपने कामों को पूरा करें![SEP]
+

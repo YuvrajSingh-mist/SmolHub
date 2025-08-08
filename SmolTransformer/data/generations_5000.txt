@@ -1,0 +1,32 @@
+------------------------------------------------Step: 5000--------------------------------------------
+
+Prompt: Hello! Myself an AI Assistant. How are you? 
+
+Top-K Generated Text: [CLS] क्या तुम लोग तो बस (और) एक नसीहत करते हो[SEP]
+
+Beam Search Text: [CLS] क्या तुम लोग हो?[SEP]
+
+------------------------------------------------Step: 5000--------------------------------------------
+
+Prompt: My name is Khan 
+
+Top-K Generated Text: [CLS] मेरे नाम का नाम है[SEP]
+
+Beam Search Text: [CLS] मेरा नाम है खान[SEP]
+
+------------------------------------------------Step: 5000--------------------------------------------
+
+Prompt: How are you? 
+
+Top-K Generated Text: [CLS] तुम कौनसी तरह की हो?[SEP]
+
+Beam Search Text: [CLS] आप कैसे हैं?[SEP]
+
+------------------------------------------------Step: 5000--------------------------------------------
+
+Prompt: The AI will take our jobs ahhh! 
+
+Top-K Generated Text: [CLS] यू० ए० एम० की भां हमें अपनी नौकरी करेंगे![SEP]
+
+Beam Search Text: [CLS] आईआईटी हमारे रोजगार के लिए होगा![SEP]
+

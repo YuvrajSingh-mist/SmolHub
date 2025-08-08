@@ -1,0 +1,32 @@
+------------------------------------------------Step: 4500--------------------------------------------
+
+Prompt: Hello! Myself an AI Assistant. How are you? 
+
+Top-K Generated Text: [CLS] क्या मैं ने मुझे माफ करो? कृपया क्या क्या वे तुम्हें मिलता है?[SEP]
+
+Beam Search Text: [CLS] क्या तुम मेरे पास है?[SEP]
+
+------------------------------------------------Step: 4500--------------------------------------------
+
+Prompt: My name is Khan 
+
+Top-K Generated Text: [CLS] मेरे नाम का हैं.[SEP]
+
+Beam Search Text: [CLS] मेरे नाम हैं आमिर[SEP]
+
+------------------------------------------------Step: 4500--------------------------------------------
+
+Prompt: How are you? 
+
+Top-K Generated Text: [CLS] आप कैसा है?[SEP]
+
+Beam Search Text: [CLS] आप कैसे हैं?[SEP]
+
+------------------------------------------------Step: 4500--------------------------------------------
+
+Prompt: The AI will take our jobs ahhh! 
+
+Top-K Generated Text: [CLS] ’ उन्होंने कहा, 'इसके लिए हम काम होगा! ”[SEP]
+
+Beam Search Text: [CLS] यह हमारी नौकरी का काम करेगा![SEP]
+

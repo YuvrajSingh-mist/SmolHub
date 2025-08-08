@@ -1,0 +1,12 @@
+torch>=2.0.0
+torchvision
+torchaudio
+transformers>=4.30.0
+datasets
+wandb
+liger-kernel
+tqdm
+torchinfo
+gradio>=4.0.0
+numpy
+pandas

@@ -1,0 +1,21 @@
+# Core PyTorch
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Transformers and datasets
+transformers>=4.30.0
+datasets>=2.10.0
+
+# Training utilities
+wandb>=0.15.0
+tqdm>=4.65.0
+
+# Web app
+gradio>=4.0.0
+
+# Additional utilities
+torchinfo>=1.8.0
+
+# Optional optimization (may fail on some systems)
+liger-kernel; platform_system != "Windows"
