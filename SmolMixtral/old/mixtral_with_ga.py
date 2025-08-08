@@ -30,7 +30,7 @@ from liger_kernel.transformers import LigerFusedLinearCrossEntropyLoss
 
 torch.cuda.set_device('cuda:0')
 
-TOKEN = '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'
+TOKEN = 'your_hf_token_here'
 tinystories = False
 fw = True
 fw_train = None
