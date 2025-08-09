@@ -1,0 +1,92 @@
+<base target="_blank"><link rel="stylesheet" type="text/css" href="https://app.wandb.ai/normalize.css" /><pre>SigLip(
+  (vision): VisionModel(
+    (model): ViTForImageClassification(
+      (vit): ViTModel(
+        (embeddings): ViTEmbeddings(
+          (patch_embeddings): ViTPatchEmbeddings(
+            (projection): Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16))
+          )
+          (dropout): Dropout(p=0.0, inplace=False)
+        )
+        (encoder): ViTEncoder(
+          (layer): ModuleList(
+            (0-11): 12 x ViTLayer(
+              (attention): ViTAttention(
+                (attention): ViTSelfAttention(
+                  (query): Linear(in_features=768, out_features=768, bias=True)
+                  (key): Linear(in_features=768, out_features=768, bias=True)
+                  (value): Linear(in_features=768, out_features=768, bias=True)
+                )
+                (output): ViTSelfOutput(
+                  (dense): Linear(in_features=768, out_features=768, bias=True)
+                  (dropout): Dropout(p=0.0, inplace=False)
+                )
+              )
+              (intermediate): ViTIntermediate(
+                (dense): Linear(in_features=768, out_features=3072, bias=True)
+                (intermediate_act_fn): GELUActivation()
+              )
+              (output): ViTOutput(
+                (dense): Linear(in_features=3072, out_features=768, bias=True)
+                (dropout): Dropout(p=0.0, inplace=False)
+              )
+              (layernorm_before): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (layernorm_after): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            )
+          )
+        )
+        (layernorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      )
+      (classifier): Linear(in_features=768, out_features=1000, bias=True)
+    )
+  )
+  (text): TextModel(
+    (layer_norm): Normalization(
+      (layernorm_layer): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    )
+    (model): RobertaModel(
+      (embeddings): RobertaEmbeddings(
+        (word_embeddings): Embedding(50265, 768, padding_idx=1)
+        (position_embeddings): Embedding(514, 768, padding_idx=1)
+        (token_type_embeddings): Embedding(1, 768)
+        (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (encoder): RobertaEncoder(
+        (layer): ModuleList(
+          (0-11): 12 x RobertaLayer(
+            (attention): RobertaAttention(
+              (self): RobertaSdpaSelfAttention(
+                (query): Linear(in_features=768, out_features=768, bias=True)
+                (key): Linear(in_features=768, out_features=768, bias=True)
+                (value): Linear(in_features=768, out_features=768, bias=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (output): RobertaSelfOutput(
+                (dense): Linear(in_features=768, out_features=768, bias=True)
+                (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+            (intermediate): RobertaIntermediate(
+              (dense): Linear(in_features=768, out_features=3072, bias=True)
+              (intermediate_act_fn): GELUActivation()
+            )
+            (output): RobertaOutput(
+              (dense): Linear(in_features=3072, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+      (pooler): RobertaPooler(
+        (dense): Linear(in_features=768, out_features=768, bias=True)
+        (activation): Tanh()
+      )
+    )
+    (multimodalTextLayerProjector): Linear(in_features=768, out_features=1536, bias=True)
+  )
+  (multimodelTextLayerPorjector): Linear(in_features=768, out_features=1536, bias=True)
+  (multimodalVisionLayerProjector): Linear(in_features=768, out_features=1536, bias=True)
+)</pre>

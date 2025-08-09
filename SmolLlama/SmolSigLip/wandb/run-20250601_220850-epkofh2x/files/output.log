@@ -1,0 +1,115 @@
+✅ Wandb initialized successfully!
+📊 Project: SmolSigLip
+🏃 Run: siglip_lr0.0004_bs128_epochs70000
+🆔 Run ID: epkofh2x
+🌐 Dashboard: https://wandb.ai/rentio/SmolSigLip/runs/epkofh2x
+🔧 Setting up custom metrics...
+✅ All metrics defined successfully!
+Model logged to wandb - Total params: 213,398,786, Trainable: 213,398,786
+🔍 Device check before compilation:
+   - Main model device: cuda:3
+   - Vision model device: cuda:3
+   - Text model device: cuda:3
+🔧 Compiling model with torch.compile...
+✅ Model compilation successful!
+🎯 Epoch 1/70000:   0%|[35m                                                                       [0m| 0/70000 [00:00<?, ?epoch/s][0m/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/PIL/Image.py:1043: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+
+=== EPOCH 1/70000 ===
+  warnings.warn(ing:   0%|[32m                                                                         [0m| 0/64 [00:00<?, ?it/s][0m
+W0601 22:16:18.697000 3702170 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] torch._dynamo hit config.recompile_limit (8)
+W0601 22:16:18.697000 3702170 site-packages/torch/_dynamo/convert_frame.py:964] [24/8]    function: 'torch_dynamo_resume_in_valid_images_at_150' (/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/image_utils.py:150)
+W0601 22:16:18.697000 3702170 site-packages/torch/_dynamo/convert_frame.py:964] [24/8]    last reason: 24/7: ___tuple_iterator_len(___stack0) == 120
+W0601 22:16:18.697000 3702170 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0601 22:16:18.697000 3702170 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+micro step: 0/128 | loss: 0.078865
+micro step: 10/128 | loss: 0.078874
+micro step: 20/128 | loss: 0.078856
+micro step: 30/128 | loss: 0.078904
+micro step: 40/128 | loss: 0.078824
+micro step: 50/128 | loss: 0.078854
+micro step: 60/128 | loss: 0.078814
+micro step: 70/128 | loss: 0.078831
+micro step: 80/128 | loss: 0.078857
+micro step: 90/128 | loss: 0.078883
+micro step: 100/128 | loss: 0.078808
+micro step: 110/128 | loss: 0.078868
+micro step: 120/128 | loss: 0.078895
+                                                                                                                                                                                             [34m[1mwandb[0m: [33mWARNING[0m Tried to log to step 1 that is less than the current step 2. Steps must be monotonically increasing, so this data will be ignored. See https://wandb.me/define-metric to log data out of order.
+/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/PIL/Image.py:1043: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+🚀 Epoch 01/30 | Step 00001 | Batch 001/064 | Loss: 10.092017 | LR: 0.00010000 | BS: 128
+  warnings.warn(
+🎯 Epoch 1/70000:   0%|[35m                                                                       [0m| 0/70000 [15:12<?, ?epoch/s][0m
+Traceback (most recent call last):                                                                                                                                               
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 594, in <module>
+    results = engine.train(model=siglip,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 349, in train
+    train_loss, train_acc = train_step(model=model,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 61, in train_step
+    for batch_idx, batch in train_pbar:
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 224, in __getitem__
+    image = self._load_image_from_url(item['url'])
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 264, in _load_image_from_url
+    response = requests.get(url, timeout=timeout)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/ssl.py", line 1307, in recv_into
+    return self.read(nbytes, buffer)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/ssl.py", line 1163, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Exception ignored in atexit callback: <function shutdown_compile_workers at 0x72de61d32b90>
+Traceback (most recent call last):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/async_compile.py", line 113, in shutdown_compile_workers
+    pool.shutdown()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/compile_worker/subproc_pool.py", line 239, in shutdown
+    self.process.wait(300)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/subprocess.py", line 1222, in wait
+    self._wait(timeout=sigint_timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/subprocess.py", line 1953, in _wait
+    time.sleep(delay)
+KeyboardInterrupt:
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x72de63127640>
+Traceback (most recent call last):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1096, in join
+    self._wait_for_tstate_lock()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1116, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt:

@@ -1,0 +1,23 @@
+2025-06-01 17:12:44,243 INFO    MainThread:1283858 [wandb_setup.py:_flush():70] Current SDK version is 0.19.11
+2025-06-01 17:12:44,243 INFO    MainThread:1283858 [wandb_setup.py:_flush():70] Configure stats pid to 1283858
+2025-06-01 17:12:44,243 INFO    MainThread:1283858 [wandb_setup.py:_flush():70] Loading settings from /speech/advait/.config/wandb/settings
+2025-06-01 17:12:44,243 INFO    MainThread:1283858 [wandb_setup.py:_flush():70] Loading settings from /speech/advait/yuvraj/LLMs/SmolSigLip/wandb/settings
+2025-06-01 17:12:44,243 INFO    MainThread:1283858 [wandb_setup.py:_flush():70] Loading settings from environment variables
+2025-06-01 17:12:44,243 INFO    MainThread:1283858 [wandb_init.py:setup_run_log_directory():724] Logging user logs to /speech/advait/yuvraj/LLMs/SmolSigLip/wandb/run-20250601_171244-92b3qqdd/logs/debug.log
+2025-06-01 17:12:44,244 INFO    MainThread:1283858 [wandb_init.py:setup_run_log_directory():725] Logging internal logs to /speech/advait/yuvraj/LLMs/SmolSigLip/wandb/run-20250601_171244-92b3qqdd/logs/debug-internal.log
+2025-06-01 17:12:44,244 INFO    MainThread:1283858 [wandb_init.py:init():852] calling init triggers
+2025-06-01 17:12:44,244 INFO    MainThread:1283858 [wandb_init.py:init():857] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.0004, 'image_encoder_lr': 0.0001, 'text_encoder_lr': 1e-05, 'head_lr': 0.001, 'batch_size': 128, 'epochs': 70000, 'model_name': 'SigLip', 'optimizer': 'Adam', 'weight_decay': 0.2, 'epsilon': 1e-06, 'device': 'cuda:3', 'block_size': 256, 'train_subset_size': 8192, 'val_subset_size': 1024, 'image_size': (224, 224), 'text_max_length': 256, '_wandb': {'code_path': 'code/train.py'}}
+2025-06-01 17:12:44,244 INFO    MainThread:1283858 [wandb_init.py:init():893] starting backend
+2025-06-01 17:12:44,244 INFO    MainThread:1283858 [wandb_init.py:init():897] sending inform_init request
+2025-06-01 17:12:44,248 INFO    MainThread:1283858 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-06-01 17:12:44,248 INFO    MainThread:1283858 [wandb_init.py:init():907] backend started and connected
+2025-06-01 17:12:44,257 INFO    MainThread:1283858 [wandb_init.py:init():1005] updated telemetry
+2025-06-01 17:12:44,257 INFO    MainThread:1283858 [wandb_init.py:init():1029] communicating run to backend with 90.0 second timeout
+2025-06-01 17:12:45,101 INFO    MainThread:1283858 [wandb_init.py:init():1104] starting run threads in backend
+2025-06-01 17:12:45,219 INFO    MainThread:1283858 [wandb_run.py:_console_start():2573] atexit reg
+2025-06-01 17:12:45,220 INFO    MainThread:1283858 [wandb_run.py:_redirect():2421] redirect: wrap_raw
+2025-06-01 17:12:45,220 INFO    MainThread:1283858 [wandb_run.py:_redirect():2490] Wrapping output streams.
+2025-06-01 17:12:45,220 INFO    MainThread:1283858 [wandb_run.py:_redirect():2513] Redirects installed.
+2025-06-01 17:12:45,222 INFO    MainThread:1283858 [wandb_init.py:init():1150] run started, returning control to user process
+2025-06-01 17:17:53,685 INFO    MsgRouterThr:1283858 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 1 handles.

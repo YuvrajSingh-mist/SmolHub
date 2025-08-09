@@ -1,0 +1,187 @@
+_wandb:
+    value:
+        cli_version: 0.19.11
+        code_path: code/train.py
+        m:
+            - "1": train/batch_size
+              "6":
+                - 3
+              "7": []
+            - "1": train/loss_smoothed
+              "6":
+                - 3
+              "7": []
+            - "1": val/step
+              "6":
+                - 3
+              "7": []
+            - "1": train/epoch
+              "6":
+                - 3
+              "7": []
+            - "1": train/batch_idx
+              "6":
+                - 3
+              "7": []
+            - "1": val/epoch
+              "6":
+                - 3
+              "7": []
+            - "1": epoch_counter
+              "6":
+                - 3
+              "7": []
+            - "1": epoch/loss_ratio
+              "5": 7
+              "6":
+                - 1
+                - 3
+              "7": []
+            - "1": epoch/loss_improvement
+              "5": 7
+              "6":
+                - 1
+                - 3
+              "7": []
+            - "1": epoch/is_improving
+              "5": 7
+              "6":
+                - 1
+                - 3
+              "7": []
+            - "1": model/total_parameters
+              "6":
+                - 3
+              "7": []
+            - "1": train/learning_rate
+              "6":
+                - 3
+              "7": []
+            - "1": train/global_step
+              "6":
+                - 3
+              "7": []
+            - "1": val/batch_loss
+              "6":
+                - 3
+              "7": []
+            - "1": epoch/train_loss
+              "5": 7
+              "6":
+                - 1
+                - 3
+              "7": []
+            - "1": epoch/test_loss
+              "5": 7
+              "6":
+                - 1
+                - 3
+              "7": []
+            - "1": epoch/loss_difference
+              "5": 7
+              "6":
+                - 1
+                - 3
+              "7": []
+            - "1": model/trainable_parameters
+              "6":
+                - 3
+              "7": []
+            - "1": model/non_trainable_parameters
+              "6":
+                - 3
+              "7": []
+            - "1": train/batch_loss
+              "6":
+                - 3
+              "7": []
+            - "1": train/epoch_progress
+              "6":
+                - 3
+              "7": []
+            - "1": val/loss_at_step
+              "6":
+                - 3
+              "7": []
+            - "1": val/batch
+              "6":
+                - 3
+              "7": []
+            - "1": epoch/epoch_number
+              "5": 7
+              "6":
+                - 1
+                - 3
+              "7": []
+        python_version: 3.10.14
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 51
+                - 53
+                - 55
+                - 63
+                - 80
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 51
+                - 53
+                - 55
+                - 63
+                - 80
+            "3":
+                - 7
+                - 13
+                - 15
+                - 16
+                - 23
+                - 55
+                - 61
+            "4": 3.10.14
+            "5": 0.19.11
+            "6": 4.52.3
+            "8":
+                - 2
+                - 5
+            "12": 0.19.11
+            "13": linux-x86_64
+batch_size:
+    value: 32
+block_size:
+    value: 256
+device:
+    value: cuda:6
+epochs:
+    value: 30
+epsilon:
+    value: 1e-06
+head_lr:
+    value: 0.001
+image_encoder_lr:
+    value: 0.0001
+image_size:
+    value: 224
+learning_rate:
+    value: 0.0004
+model_name:
+    value: SigLip
+optimizer:
+    value: Adam
+text_encoder_lr:
+    value: 1e-05
+text_max_length:
+    value: 256
+train_subset_size:
+    value: 10000
+val_subset_size:
+    value: 1000
+weight_decay:
+    value: 0.2

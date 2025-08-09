@@ -1,0 +1,377 @@
+✅ Wandb initialized successfully!
+📊 Project: SmolSigLip
+🏃 Run: siglip_lr0.0004_bs128_epochs70000
+🆔 Run ID: nyuui2ku
+🌐 Dashboard: https://wandb.ai/rentio/SmolSigLip/runs/nyuui2ku
+🔧 Setting up custom metrics...
+✅ All metrics defined successfully!
+Model logged to wandb - Total params: 213,398,786, Trainable: 213,398,786
+🔍 Device check before compilation:
+   - Main model device: cuda:3
+   - Vision model device: cuda:3
+   - Text model device: cuda:3
+🔧 Compiling model with torch.compile...
+✅ Model compilation successful!
+🎯 Epoch 1/70000:   0%|[35m                                                                                                                             [0m| 0/70000 [00:00<?, ?epoch/s][0mW0601 22:33:26.090000 4123420 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] torch._dynamo hit config.recompile_limit (8)
+
+=== EPOCH 1/70000 ===
+W0601 22:33:26.090000 4123420 site-packages/torch/_dynamo/convert_frame.py:964] [24/8]    function: 'torch_dynamo_resume_in_valid_images_at_150' (/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/image_utils.py:150)
+W0601 22:33:26.090000 4123420 site-packages/torch/_dynamo/convert_frame.py:964] [24/8]    last reason: 24/7: ___tuple_iterator_len(___stack0) == 120
+W0601 22:33:26.090000 4123420 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0601 22:33:26.090000 4123420 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+micro step: 0/128 | loss: 0.078211
+micro step: 10/128 | loss: 0.078187
+micro step: 20/128 | loss: 0.078156
+micro step: 30/128 | loss: 0.078167
+micro step: 40/128 | loss: 0.078184
+micro step: 50/128 | loss: 0.078175
+micro step: 60/128 | loss: 0.078170
+micro step: 70/128 | loss: 0.078160
+micro step: 80/128 | loss: 0.078208
+micro step: 90/128 | loss: 0.078165
+micro step: 100/128 | loss: 0.078188
+micro step: 110/128 | loss: 0.078198
+micro step: 120/128 | loss: 0.078155
+
+🚀 Epoch 01 Training:   5%|[32m███▍                                                                      [0m| 3/64 [25:49<9:04:14, 535.32s/it, Loss=7.5038, LR=1.00e-04, BS=128, Step=3][0m
+micro step: 0/128 | loss: 0.067606
+micro step: 10/128 | loss: 0.067592
+micro step: 20/128 | loss: 0.067601
+micro step: 30/128 | loss: 0.067625
+micro step: 40/128 | loss: 0.067617
+micro step: 50/128 | loss: 0.067684
+micro step: 60/128 | loss: 0.067606
+micro step: 70/128 | loss: 0.067586
+micro step: 80/128 | loss: 0.067601
+micro step: 90/128 | loss: 0.067606
+micro step: 100/128 | loss: 0.067604
+micro step: 110/128 | loss: 0.067622
+micro step: 120/128 | loss: 0.067632
+micro step: 0/128 | loss: 0.058654
+micro step: 10/128 | loss: 0.058701
+micro step: 20/128 | loss: 0.058621
+micro step: 30/128 | loss: 0.058580
+micro step: 40/128 | loss: 0.058642
+micro step: 50/128 | loss: 0.058627
+micro step: 60/128 | loss: 0.058622
+micro step: 70/128 | loss: 0.058665
+micro step: 80/128 | loss: 0.058636
+micro step: 90/128 | loss: 0.058625
+micro step: 100/128 | loss: 0.058594
+micro step: 110/128 | loss: 0.058632
+micro step: 120/128 | loss: 0.058607
+micro step: 0/128 | loss: 0.054580
+micro step: 10/128 | loss: 0.054631
+micro step: 20/128 | loss: 0.054605
+micro step: 30/128 | loss: 0.054580
+micro step: 40/128 | loss: 0.054587
+micro step: 50/128 | loss: 0.054547
+micro step: 60/128 | loss: 0.054629
+micro step: 70/128 | loss: 0.054579
+micro step: 80/128 | loss: 0.054640
+micro step: 90/128 | loss: 0.054575
+micro step: 100/128 | loss: 0.054605
+micro step: 110/128 | loss: 0.054604
+micro step: 120/128 | loss: 0.054548
+micro step: 0/128 | loss: 0.051154
+micro step: 10/128 | loss: 0.051145
+micro step: 20/128 | loss: 0.051095
+micro step: 30/128 | loss: 0.051156
+micro step: 40/128 | loss: 0.051155
+micro step: 50/128 | loss: 0.051139
+micro step: 60/128 | loss: 0.051112
+micro step: 70/128 | loss: 0.051105
+micro step: 80/128 | loss: 0.051170
+micro step: 90/128 | loss: 0.051169
+micro step: 100/128 | loss: 0.051174
+micro step: 110/128 | loss: 0.051157
+micro step: 120/128 | loss: 0.051246
+micro step: 0/128 | loss: 0.048660
+micro step: 10/128 | loss: 0.048632
+micro step: 20/128 | loss: 0.048667
+micro step: 30/128 | loss: 0.048628
+micro step: 40/128 | loss: 0.048624
+micro step: 50/128 | loss: 0.048578
+micro step: 60/128 | loss: 0.048640
+micro step: 70/128 | loss: 0.048633
+micro step: 80/128 | loss: 0.048619
+micro step: 90/128 | loss: 0.048650
+micro step: 100/128 | loss: 0.048603
+micro step: 110/128 | loss: 0.048612
+micro step: 120/128 | loss: 0.048578
+
+🚀 Epoch 01 Training:  12%|[32m█████████                                                               [0m| 8/64 [1:14:58<8:49:24, 567.22s/it, Loss=5.9143, LR=1.01e-04, BS=128, Step=8][0m
+micro step: 0/128 | loss: 0.045990
+micro step: 10/128 | loss: 0.046001
+micro step: 20/128 | loss: 0.046000
+micro step: 30/128 | loss: 0.046007
+micro step: 40/128 | loss: 0.045971
+micro step: 50/128 | loss: 0.046006
+micro step: 60/128 | loss: 0.046035
+micro step: 70/128 | loss: 0.045982
+micro step: 80/128 | loss: 0.046047
+micro step: 90/128 | loss: 0.045985
+micro step: 100/128 | loss: 0.046008
+micro step: 110/128 | loss: 0.045990
+micro step: 120/128 | loss: 0.045980
+micro step: 0/128 | loss: 0.046181
+micro step: 10/128 | loss: 0.046205
+micro step: 20/128 | loss: 0.046200
+micro step: 30/128 | loss: 0.046194
+micro step: 40/128 | loss: 0.046199
+micro step: 50/128 | loss: 0.046208
+micro step: 60/128 | loss: 0.046182
+micro step: 70/128 | loss: 0.046201
+micro step: 80/128 | loss: 0.046206
+micro step: 90/128 | loss: 0.046216
+micro step: 100/128 | loss: 0.046273
+micro step: 110/128 | loss: 0.046221
+micro step: 120/128 | loss: 0.046215
+micro step: 0/128 | loss: 0.045966
+micro step: 10/128 | loss: 0.045958
+micro step: 20/128 | loss: 0.045977
+micro step: 30/128 | loss: 0.045951
+micro step: 40/128 | loss: 0.045969
+micro step: 50/128 | loss: 0.045955
+micro step: 60/128 | loss: 0.045960
+micro step: 70/128 | loss: 0.045956
+micro step: 80/128 | loss: 0.045963
+micro step: 90/128 | loss: 0.045948
+micro step: 100/128 | loss: 0.046031
+micro step: 110/128 | loss: 0.046017
+micro step: 120/128 | loss: 0.045983
+micro step: 0/128 | loss: 0.045786
+micro step: 10/128 | loss: 0.045785
+micro step: 20/128 | loss: 0.045824
+micro step: 30/128 | loss: 0.045790
+micro step: 40/128 | loss: 0.045789
+micro step: 50/128 | loss: 0.045798
+micro step: 60/128 | loss: 0.045788
+micro step: 70/128 | loss: 0.045793
+micro step: 80/128 | loss: 0.045791
+micro step: 90/128 | loss: 0.045803
+micro step: 100/128 | loss: 0.045789
+micro step: 110/128 | loss: 0.045792
+micro step: 120/128 | loss: 0.045801
+micro step: 0/128 | loss: 0.045813
+micro step: 10/128 | loss: 0.045821
+micro step: 20/128 | loss: 0.045809
+micro step: 30/128 | loss: 0.045811
+micro step: 40/128 | loss: 0.045814
+micro step: 50/128 | loss: 0.045809
+micro step: 60/128 | loss: 0.045805
+micro step: 70/128 | loss: 0.045812
+micro step: 80/128 | loss: 0.045820
+micro step: 90/128 | loss: 0.045816
+micro step: 100/128 | loss: 0.045803
+micro step: 110/128 | loss: 0.045815
+micro step: 120/128 | loss: 0.045802
+micro step: 0/128 | loss: 0.045770
+micro step: 10/128 | loss: 0.045771
+micro step: 20/128 | loss: 0.045766
+micro step: 30/128 | loss: 0.045770
+micro step: 40/128 | loss: 0.045771
+micro step: 50/128 | loss: 0.045773
+micro step: 60/128 | loss: 0.045767
+micro step: 70/128 | loss: 0.045772
+micro step: 80/128 | loss: 0.045773
+micro step: 90/128 | loss: 0.045772
+micro step: 100/128 | loss: 0.045764
+micro step: 110/128 | loss: 0.045781
+micro step: 120/128 | loss: 0.045770
+micro step: 0/128 | loss: 0.045776
+micro step: 10/128 | loss: 0.045770
+micro step: 20/128 | loss: 0.045769
+micro step: 30/128 | loss: 0.045779
+micro step: 40/128 | loss: 0.045768
+micro step: 50/128 | loss: 0.045778
+micro step: 60/128 | loss: 0.045765
+micro step: 70/128 | loss: 0.045764
+micro step: 80/128 | loss: 0.045784
+micro step: 90/128 | loss: 0.045771
+micro step: 100/128 | loss: 0.045772
+micro step: 110/128 | loss: 0.045769
+micro step: 120/128 | loss: 0.045768
+micro step: 0/128 | loss: 0.045770
+micro step: 10/128 | loss: 0.045757
+micro step: 20/128 | loss: 0.045765
+micro step: 30/128 | loss: 0.045763
+micro step: 40/128 | loss: 0.045774
+micro step: 50/128 | loss: 0.045765
+micro step: 60/128 | loss: 0.045760
+micro step: 70/128 | loss: 0.045767
+micro step: 80/128 | loss: 0.045767
+micro step: 90/128 | loss: 0.045757
+micro step: 100/128 | loss: 0.045768
+micro step: 110/128 | loss: 0.045761
+micro step: 120/128 | loss: 0.045761
+micro step: 0/128 | loss: 0.045720
+micro step: 10/128 | loss: 0.045717
+micro step: 20/128 | loss: 0.045722
+micro step: 30/128 | loss: 0.045723
+micro step: 40/128 | loss: 0.045725
+micro step: 50/128 | loss: 0.045720
+micro step: 60/128 | loss: 0.045713
+micro step: 70/128 | loss: 0.045723
+micro step: 80/128 | loss: 0.045716
+micro step: 90/128 | loss: 0.045715
+micro step: 100/128 | loss: 0.045722
+micro step: 110/128 | loss: 0.045731
+micro step: 120/128 | loss: 0.045723
+micro step: 0/128 | loss: 0.045751
+micro step: 10/128 | loss: 0.045749
+micro step: 20/128 | loss: 0.045750
+micro step: 30/128 | loss: 0.045750
+micro step: 40/128 | loss: 0.045750
+micro step: 50/128 | loss: 0.045749
+micro step: 60/128 | loss: 0.045744
+micro step: 70/128 | loss: 0.045750
+micro step: 80/128 | loss: 0.045745
+micro step: 90/128 | loss: 0.045748
+micro step: 100/128 | loss: 0.045751
+micro step: 110/128 | loss: 0.045748
+micro step: 120/128 | loss: 0.045750
+micro step: 0/128 | loss: 0.045711
+micro step: 10/128 | loss: 0.045707
+micro step: 20/128 | loss: 0.045707
+micro step: 30/128 | loss: 0.045705
+micro step: 40/128 | loss: 0.045706
+micro step: 50/128 | loss: 0.045708
+micro step: 60/128 | loss: 0.045709
+micro step: 70/128 | loss: 0.045707
+micro step: 80/128 | loss: 0.045710
+micro step: 90/128 | loss: 0.045709
+micro step: 100/128 | loss: 0.045709
+micro step: 110/128 | loss: 0.045708
+micro step: 120/128 | loss: 0.045708
+micro step: 0/128 | loss: 0.045745
+micro step: 10/128 | loss: 0.045745
+micro step: 20/128 | loss: 0.045747
+micro step: 30/128 | loss: 0.045745
+micro step: 40/128 | loss: 0.045750
+micro step: 50/128 | loss: 0.045751
+micro step: 60/128 | loss: 0.045749
+micro step: 70/128 | loss: 0.045744
+micro step: 80/128 | loss: 0.045746
+micro step: 90/128 | loss: 0.045744
+micro step: 100/128 | loss: 0.045751
+micro step: 110/128 | loss: 0.045746
+micro step: 120/128 | loss: 0.045746
+micro step: 0/128 | loss: 0.045703
+micro step: 10/128 | loss: 0.045707
+micro step: 20/128 | loss: 0.045704
+micro step: 30/128 | loss: 0.045701
+micro step: 40/128 | loss: 0.045707
+micro step: 50/128 | loss: 0.045703
+micro step: 60/128 | loss: 0.045706
+micro step: 70/128 | loss: 0.045702
+micro step: 80/128 | loss: 0.045703
+micro step: 90/128 | loss: 0.045704
+micro step: 100/128 | loss: 0.045704
+micro step: 110/128 | loss: 0.045706
+micro step: 120/128 | loss: 0.045707
+micro step: 0/128 | loss: 0.045729
+micro step: 10/128 | loss: 0.045726
+micro step: 20/128 | loss: 0.045732
+micro step: 30/128 | loss: 0.045723
+micro step: 40/128 | loss: 0.045730
+micro step: 50/128 | loss: 0.045728
+micro step: 60/128 | loss: 0.045730
+micro step: 70/128 | loss: 0.045730
+micro step: 80/128 | loss: 0.045731
+micro step: 90/128 | loss: 0.045735
+micro step: 100/128 | loss: 0.045728
+micro step: 110/128 | loss: 0.045731
+micro step: 120/128 | loss: 0.045729
+micro step: 0/128 | loss: 0.045708
+micro step: 10/128 | loss: 0.045712
+micro step: 20/128 | loss: 0.045711
+micro step: 30/128 | loss: 0.045709
+micro step: 40/128 | loss: 0.045706
+micro step: 50/128 | loss: 0.045711
+micro step: 60/128 | loss: 0.045712
+micro step: 70/128 | loss: 0.045711
+micro step: 80/128 | loss: 0.045711
+micro step: 90/128 | loss: 0.045710
+micro step: 100/128 | loss: 0.045710
+micro step: 110/128 | loss: 0.045712
+micro step: 120/128 | loss: 0.045713
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 594, in <module>
+    results = engine.train(model=siglip,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 343, in train
+    train_loss, train_acc = train_step(model=model,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 61, in train_step
+    for batch_idx, batch in train_pbar:
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 224, in __getitem__
+    image = self._load_image_from_url(item['url'])
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 264, in _load_image_from_url
+    response = requests.get(url, timeout=timeout)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/sessions.py", line 724, in send
+    history = [resp for resp in gen]
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/sessions.py", line 724, in <listcomp>
+    history = [resp for resp in gen]
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/sessions.py", line 265, in resolve_redirects
+    resp = self.send(
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/connection.py", line 516, in getresponse
+    httplib_response = super().getresponse()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/ssl.py", line 1307, in recv_into
+    return self.read(nbytes, buffer)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/ssl.py", line 1163, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Exception ignored in atexit callback: <function shutdown_compile_workers at 0x7c543053ac20>
+Traceback (most recent call last):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/async_compile.py", line 113, in shutdown_compile_workers
+    pool.shutdown()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/compile_worker/subproc_pool.py", line 239, in shutdown
+    self.process.wait(300)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/subprocess.py", line 1222, in wait
+    self._wait(timeout=sigint_timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/subprocess.py", line 1953, in _wait
+    time.sleep(delay)
+KeyboardInterrupt:
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x7c54337845e0>
+Traceback (most recent call last):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1096, in join
+    self._wait_for_tstate_lock()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1116, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt:

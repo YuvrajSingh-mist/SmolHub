@@ -1,0 +1,56 @@
+✅ Wandb initialized successfully!
+📊 Project: SmolSigLip
+🏃 Run: siglip_lr0.0004_bs256_epochs30
+🆔 Run ID: npcihd7k
+🌐 Dashboard: https://wandb.ai/rentio/SmolSigLip/runs/npcihd7k
+🔧 Setting up custom metrics...
+✅ All metrics defined successfully!
+Model logged to wandb - Total params: 150,910,018, Trainable: 150,910,018
+🎯 Epoch 1/70000:   0%|[35m                                                                                                                             [0m| 0/70000 [00:00<?, ?epoch/s][0m/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/PIL/Image.py:1043: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+
+=== EPOCH 1/70000 ===
+  warnings.warn(ing:   0%|[32m                                                                                                                               [0m| 0/32 [00:00<?, ?it/s][0m
+🎯 Epoch 1/70000:   0%|[35m                                                                                                                             [0m| 0/70000 [09:49<?, ?epoch/s][0m
+Traceback (most recent call last):                                                                                                                                               
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 460, in <module>
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 307, in train
+    train_loss, train_acc = train_step(model=model,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 59, in train_step
+    for batch_idx, batch in train_pbar:
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 157, in __getitem__
+    image = self._load_image_from_url(item['url'])
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 197, in _load_image_from_url
+    response = requests.get(url, timeout=timeout)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/speech/advait/.local/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+KeyboardInterrupt

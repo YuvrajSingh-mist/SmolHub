@@ -1,0 +1,187 @@
+✅ Wandb initialized successfully!
+📊 Project: SmolSigLip
+🏃 Run: siglip_lr0.0004_bs128_epochs70000
+🆔 Run ID: 1wjtppmv
+🌐 Dashboard: https://wandb.ai/rentio/SmolSigLip/runs/1wjtppmv
+🔧 Setting up custom metrics...
+✅ All metrics defined successfully!
+Model logged to wandb - Total params: 213,398,786, Trainable: 213,398,786
+🔍 Device check before compilation:
+   - Main model device: cuda:3
+   - Vision model device: cuda:3
+   - Text model device: cuda:3
+🔧 Compiling model with torch.compile...
+✅ Model compilation successful!
+🎯 Epoch 1/70000:   0%|[35m                                                                          [0m| 0/70000 [00:00<?, ?epoch/s][0mW0601 21:12:36.990000 2313630 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] torch._dynamo hit config.recompile_limit (8)
+
+=== EPOCH 1/70000 ===
+W0601 21:12:36.990000 2313630 site-packages/torch/_dynamo/convert_frame.py:964] [24/8]    function: 'torch_dynamo_resume_in_valid_images_at_150' (/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/image_utils.py:150)
+W0601 21:12:36.990000 2313630 site-packages/torch/_dynamo/convert_frame.py:964] [24/8]    last reason: 24/7: ___tuple_iterator_len(___stack0) == 120
+W0601 21:12:36.990000 2313630 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0601 21:12:36.990000 2313630 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+micro step: 0/128 | loss: 0.077830
+micro step: 10/128 | loss: 0.077848
+micro step: 20/128 | loss: 0.077852
+micro step: 30/128 | loss: 0.077871
+micro step: 40/128 | loss: 0.077815
+micro step: 50/128 | loss: 0.077898
+micro step: 60/128 | loss: 0.077816
+micro step: 70/128 | loss: 0.077841
+micro step: 80/128 | loss: 0.077826
+micro step: 90/128 | loss: 0.077840
+micro step: 100/128 | loss: 0.077836
+micro step: 110/128 | loss: 0.077850
+micro step: 120/128 | loss: 0.077864
+                                                                                                                                          [34m[1mwandb[0m: [33mWARNING[0m Tried to log to step 1 that is less than the current step 2. Steps must be monotonically increasing, so this data will be ignored. See https://wandb.me/define-metric to log data out of order.
+🚀 Epoch 01 Training:   2%|[32m▎                      [0m| 1/64 [/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/PIL/Image.py:1043: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+🚀 Epoch 01/30 | Step 00001 | Batch 001/064 | Loss: 9.964822 | LR: 0.00010000 | BS: 128
+micro step: 0/128 | loss: 0.057760
+micro step: 10/128 | loss: 0.057829
+micro step: 20/128 | loss: 0.057902
+micro step: 30/128 | loss: 0.057823
+micro step: 40/128 | loss: 0.057889
+micro step: 50/128 | loss: 0.057798
+micro step: 60/128 | loss: 0.057860
+micro step: 70/128 | loss: 0.057714
+micro step: 80/128 | loss: 0.057826
+micro step: 90/128 | loss: 0.057838
+micro step: 100/128 | loss: 0.057786
+micro step: 110/128 | loss: 0.057791
+micro step: 120/128 | loss: 0.057834
+  warnings.warn(ing:   5%|[32m [0m| 3/64 [23:07<7:30:51, 443[0m                                                                        
+🚀 Epoch 01/30 | Step 00002 | Batch 002/064 | Loss: 7.400569 | LR: 0.00010000 | BS: 128
+micro step: 0/128 | loss: 0.052752
+micro step: 10/128 | loss: 0.052708
+micro step: 20/128 | loss: 0.052749
+micro step: 30/128 | loss: 0.052737
+micro step: 40/128 | loss: 0.052747
+micro step: 50/128 | loss: 0.052710
+micro step: 60/128 | loss: 0.052720
+micro step: 70/128 | loss: 0.052691
+micro step: 80/128 | loss: 0.052702
+micro step: 90/128 | loss: 0.052709
+micro step: 100/128 | loss: 0.052705
+micro step: 110/128 | loss: 0.052775
+micro step: 120/128 | loss: 0.052726
+🚀 Epoch 01/30 | Step 00003 | Batch 003/064 | Loss: 6.750265 | LR: 0.00010000 | BS: 128
+micro step: 0/128 | loss: 0.048588
+micro step: 10/128 | loss: 0.048594
+micro step: 20/128 | loss: 0.048666
+micro step: 30/128 | loss: 0.048601
+micro step: 40/128 | loss: 0.048716
+micro step: 50/128 | loss: 0.048626
+micro step: 60/128 | loss: 0.048633
+micro step: 70/128 | loss: 0.048653
+micro step: 80/128 | loss: 0.048652
+micro step: 90/128 | loss: 0.048646
+micro step: 100/128 | loss: 0.048650
+micro step: 110/128 | loss: 0.048677
+micro step: 120/128 | loss: 0.048657
+
+🚀 Epoch 01 Training:   9%|[32m██████▉                                                                   [0m| 6/64 [47:43<8:03:32, 500.21s/it, Loss=6.1434, LR=1.00e-04, BS=128, Step=6][0m
+🚀 Epoch 01/30 | Step 00004 | Batch 004/064 | Loss: 6.224619 | LR: 0.00010000 | BS: 128
+micro step: 0/128 | loss: 0.048562
+micro step: 10/128 | loss: 0.048558
+micro step: 20/128 | loss: 0.048559
+micro step: 30/128 | loss: 0.048538
+micro step: 40/128 | loss: 0.048539
+micro step: 50/128 | loss: 0.048570
+micro step: 60/128 | loss: 0.048602
+micro step: 70/128 | loss: 0.048535
+micro step: 80/128 | loss: 0.048567
+micro step: 90/128 | loss: 0.048525
+micro step: 100/128 | loss: 0.048546
+micro step: 110/128 | loss: 0.048598
+micro step: 120/128 | loss: 0.048538
+🚀 Epoch 01/30 | Step 00005 | Batch 005/064 | Loss: 6.213973 | LR: 0.00010000 | BS: 128
+micro step: 0/128 | loss: 0.048008
+micro step: 10/128 | loss: 0.047997
+micro step: 20/128 | loss: 0.047986
+micro step: 30/128 | loss: 0.048007
+micro step: 40/128 | loss: 0.048002
+micro step: 50/128 | loss: 0.047982
+micro step: 60/128 | loss: 0.048002
+micro step: 70/128 | loss: 0.047998
+micro step: 80/128 | loss: 0.047992
+micro step: 90/128 | loss: 0.048001
+micro step: 100/128 | loss: 0.047978
+micro step: 110/128 | loss: 0.047980
+micro step: 120/128 | loss: 0.047982
+🚀 Epoch 01/30 | Step 00006 | Batch 006/064 | Loss: 6.143351 | LR: 0.00010000 | BS: 128
+micro step: 0/128 | loss: 0.047247
+micro step: 10/128 | loss: 0.047255
+micro step: 20/128 | loss: 0.047248
+micro step: 30/128 | loss: 0.047259
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 501, in <module>
+    results = engine.train(model=siglip,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 345, in train
+    train_loss, train_acc = train_step(model=model,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 78, in train_step
+    y_pred = model(batch)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 655, in _fn
+    return fn(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 366, in forward
+    embeds_text = self.text(batch['text'])
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 369, in torch_dynamo_resume_in_forward_at_366
+    embeds_img = self.vision(batch['image'])
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 338, in forward
+    inputs = self.preprocessor(images=x, return_tensors="pt")
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/image_processing_utils.py", line 44, in __call__
+    return self.preprocess(images, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/utils/generic.py", line 870, in wrapper
+    return func(*args, **valid_kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/models/vit/image_processing_vit.py", line 228, in preprocess
+    images = make_list_of_images(images)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/models/vit/image_processing_vit.py", line 230, in torch_dynamo_resume_in_preprocess_at_228
+    if not valid_images(images):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/models/vit/image_processing_vit.py", line 250, in torch_dynamo_resume_in_preprocess_at_230
+    images = [to_numpy_array(image) for image in images]
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/models/vit/image_processing_vit.py", line 252, in torch_dynamo_resume_in_preprocess_at_250
+    if do_rescale and is_scaled_image(images[0]):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/models/vit/image_processing_vit.py", line 263, in torch_dynamo_resume_in_preprocess_at_252
+    images = [
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/models/vit/image_processing_vit.py", line 275, in torch_dynamo_resume_in_preprocess_at_263
+    images = [
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/models/vit/image_processing_vit.py", line 276, in <listcomp>
+    self.normalize(image=image, mean=image_mean, std=image_std, input_data_format=input_data_format)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/image_processing_utils.py", line 114, in normalize
+    return normalize(
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/image_transforms.py", line 450, in normalize
+    image = to_channel_dimension_format(image, data_format, input_data_format) if data_format is not None else image
+KeyboardInterrupt
+Exception ignored in atexit callback: <function shutdown_compile_workers at 0x76102ad2e7a0>
+Traceback (most recent call last):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/async_compile.py", line 113, in shutdown_compile_workers
+    pool.shutdown()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/compile_worker/subproc_pool.py", line 239, in shutdown
+    self.process.wait(300)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/subprocess.py", line 1222, in wait
+    self._wait(timeout=sigint_timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/subprocess.py", line 1953, in _wait
+    time.sleep(delay)
+KeyboardInterrupt:
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x76104fe81b40>
+Traceback (most recent call last):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1096, in join
+    self._wait_for_tstate_lock()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1116, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt:

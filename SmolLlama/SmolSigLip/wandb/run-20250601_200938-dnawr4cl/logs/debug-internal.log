@@ -1,0 +1,16 @@
+{"time":"2025-06-01T20:09:38.5761489+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/speech/advait/yuvraj/LLMs/SmolSigLip/wandb/run-20250601_200938-dnawr4cl/logs/debug-core.log"}
+{"time":"2025-06-01T20:09:39.063122197+05:30","level":"INFO","msg":"created new stream","id":"dnawr4cl"}
+{"time":"2025-06-01T20:09:39.063174936+05:30","level":"INFO","msg":"stream: started","id":"dnawr4cl"}
+{"time":"2025-06-01T20:09:39.063200806+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"dnawr4cl"}
+{"time":"2025-06-01T20:09:39.063234406+05:30","level":"INFO","msg":"handler: started","stream_id":"dnawr4cl"}
+{"time":"2025-06-01T20:09:39.063236016+05:30","level":"INFO","msg":"sender: started","stream_id":"dnawr4cl"}
+{"time":"2025-06-01T20:09:39.395499135+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-01T20:09:39.396998335+05:30","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2025-06-01T20:17:53.51684257+05:30","level":"INFO","msg":"stream: closing","id":"dnawr4cl"}
+{"time":"2025-06-01T20:17:53.516906319+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-01T20:17:53.516975069+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-01T20:17:55.21394313+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-01T20:17:55.702809949+05:30","level":"INFO","msg":"handler: closed","stream_id":"dnawr4cl"}
+{"time":"2025-06-01T20:17:55.702881279+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"dnawr4cl"}
+{"time":"2025-06-01T20:17:55.702895209+05:30","level":"INFO","msg":"sender: closed","stream_id":"dnawr4cl"}
+{"time":"2025-06-01T20:17:55.702995358+05:30","level":"INFO","msg":"stream: closed","id":"dnawr4cl"}

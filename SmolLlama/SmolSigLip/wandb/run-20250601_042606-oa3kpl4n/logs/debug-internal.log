@@ -1,0 +1,10 @@
+{"time":"2025-06-01T04:26:06.052596624+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/speech/advait/yuvraj/LLMs/SmolSigLip/wandb/run-20250601_042606-oa3kpl4n/logs/debug-core.log"}
+{"time":"2025-06-01T04:26:06.633341543+05:30","level":"INFO","msg":"created new stream","id":"oa3kpl4n"}
+{"time":"2025-06-01T04:26:06.633389492+05:30","level":"INFO","msg":"stream: started","id":"oa3kpl4n"}
+{"time":"2025-06-01T04:26:06.633428072+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"oa3kpl4n"}
+{"time":"2025-06-01T04:26:06.633466551+05:30","level":"INFO","msg":"sender: started","stream_id":"oa3kpl4n"}
+{"time":"2025-06-01T04:26:06.633435541+05:30","level":"INFO","msg":"handler: started","stream_id":"oa3kpl4n"}
+{"time":"2025-06-01T04:26:07.034824067+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-01T04:26:07.03601614+05:30","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2025-06-01T04:27:15.107135429+05:30","level":"WARN","msg":"handler: ignoring partial history record","step":0,"current":2}
+{"time":"2025-06-01T04:27:15.297241606+05:30","level":"WARN","msg":"handler: ignoring partial history record","step":1,"current":2}

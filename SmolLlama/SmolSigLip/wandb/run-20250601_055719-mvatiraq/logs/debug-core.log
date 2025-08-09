@@ -1,0 +1,7 @@
+{"time":"2025-06-01T05:57:18.919724749+05:30","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmpuj1ws3aa/port-3311476.txt","pid":3311476,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2025-06-01T05:57:18.921128604+05:30","level":"INFO","msg":"Will exit if parent process dies.","ppid":3311476}
+{"time":"2025-06-01T05:57:18.921133864+05:30","level":"INFO","msg":"server is running","addr":{"IP":"127.0.0.1","Port":35347,"Zone":""}}
+{"time":"2025-06-01T05:57:19.103605742+05:30","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"127.0.0.1:43448"}
+{"time":"2025-06-01T05:57:19.635435631+05:30","level":"INFO","msg":"handleInformInit: received","streamId":"mvatiraq","id":"127.0.0.1:43448"}
+{"time":"2025-06-01T05:57:20.112851931+05:30","level":"INFO","msg":"handleInformInit: stream started","streamId":"mvatiraq","id":"127.0.0.1:43448"}
+{"time":"2025-06-01T05:58:24.715841918+05:30","level":"INFO","msg":"Parent process exited, terminating service process."}

@@ -1,0 +1,67 @@
+✅ Wandb initialized successfully!
+📊 Project: SmolSigLip
+🏃 Run: siglip_lr0.0004_bs16_epochs70000
+🆔 Run ID: k68ty9jc
+🌐 Dashboard: https://wandb.ai/rentio/SmolSigLip/runs/k68ty9jc
+🔧 Setting up custom metrics...
+✅ All metrics defined successfully!
+Model logged to wandb - Total params: 150,910,018, Trainable: 150,910,018
+🎯 Epoch 1/70000:   0%|[35m                                                                          [0m| 0/70000 [00:00<?, ?epoch/s][0m[34m[1mwandb[0m: [33mWARNING[0m Tried to log to step 1 that is less than the current step 2. Steps must be monotonically increasing, so this data will be ignored. See https://wandb.me/define-metric to log data out of order.
+
+=== EPOCH 1/70000 ===
+🎯 Epoch 1/70000:   0%|[35m                                                                          [0m| 0/70000 [05:44<?, ?epoch/s][0m
+🚀 Epoch 01/30 | Step 00001 | Batch 001/512 | Loss: 10.142027 | LR: 0.00010000 | BS: 16
+Traceback (most recent call last):                                                                                             Step=5][0m
+🚀 Epoch 01/30 | Step 00002 | Batch 002/512 | Loss: 3.775054 | LR: 0.00010000 | BS: 16
+🚀 Epoch 01/30 | Step 00003 | Batch 003/512 | Loss: 4.306499 | LR: 0.00010000 | BS: 16
+🚀 Epoch 01/30 | Step 00004 | Batch 004/512 | Loss: 3.778343 | LR: 0.00010000 | BS: 16
+🚀 Epoch 01/30 | Step 00005 | Batch 005/512 | Loss: 3.813673 | LR: 0.00010000 | BS: 16
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 464, in <module>
+    results = engine.train(model=siglip,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 331, in train
+    train_loss, train_acc = train_step(model=model,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 59, in train_step
+    for batch_idx, batch in train_pbar:
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 157, in __getitem__
+    image = self._load_image_from_url(item['url'])
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 199, in _load_image_from_url
+    image = Image.open(BytesIO(response.content)).convert('RGB')
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/PIL/Image.py", line 982, in convert
+    self.load()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/PIL/ImageFile.py", line 389, in load
+    n, err_code = decoder.decode(b)
+KeyboardInterrupt
+Exception ignored in atexit callback: <function shutdown_compile_workers at 0x796ab191cdc0>
+Traceback (most recent call last):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/async_compile.py", line 113, in shutdown_compile_workers
+    pool.shutdown()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/compile_worker/subproc_pool.py", line 239, in shutdown
+    self.process.wait(300)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/subprocess.py", line 1222, in wait
+    self._wait(timeout=sigint_timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/subprocess.py", line 1953, in _wait
+    time.sleep(delay)
+KeyboardInterrupt:
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x796ab37a00d0>
+Traceback (most recent call last):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1096, in join
+    self._wait_for_tstate_lock()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1116, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt:

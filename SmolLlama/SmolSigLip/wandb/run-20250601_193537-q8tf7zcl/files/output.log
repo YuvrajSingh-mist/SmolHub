@@ -1,0 +1,52 @@
+✅ Wandb initialized successfully!
+📊 Project: SmolSigLip
+🏃 Run: siglip_lr0.0004_bs128_epochs70000
+🆔 Run ID: q8tf7zcl
+🌐 Dashboard: https://wandb.ai/rentio/SmolSigLip/runs/q8tf7zcl
+🔧 Setting up custom metrics...
+✅ All metrics defined successfully!
+Model logged to wandb - Total params: 212,986,602, Trainable: 212,986,602
+🔍 Device check before compilation:
+   - Main model device: cuda:3
+   - Vision model device: cuda:3
+   - Text model device: cuda:3
+🔧 Compiling model with torch.compile...
+✅ Model compilation successful!
+🎯 Epoch 1/70000:   0%|[35m                                                                          [0m| 0/70000 [00:00<?, ?epoch/s][0mW0601 19:41:47.688000 292991 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] torch._dynamo hit config.recompile_limit (8)
+
+=== EPOCH 1/70000 ===
+W0601 19:41:47.688000 292991 site-packages/torch/_dynamo/convert_frame.py:964] [24/8]    function: 'torch_dynamo_resume_in_valid_images_at_150' (/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/image_utils.py:150)
+W0601 19:41:47.688000 292991 site-packages/torch/_dynamo/convert_frame.py:964] [24/8]    last reason: 24/7: ___tuple_iterator_len(___stack0) == 120
+W0601 19:41:47.688000 292991 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0601 19:41:47.688000 292991 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+🎯 Epoch 1/70000:   0%|[35m                                                                          [0m| 0/70000 [06:22<?, ?epoch/s][0m
+Traceback (most recent call last):                                                                                            
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 497, in <module>
+    results = engine.train(model=siglip,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 345, in train
+    train_loss, train_acc = train_step(model=model,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 78, in train_step
+    y_pred = model(batch)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 655, in _fn
+    return fn(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 362, in forward
+    embeds_text = self.text(batch['text'])
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 365, in torch_dynamo_resume_in_forward_at_362
+    embeds_img = self.vision(batch['image'])
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 336, in forward
+    inputs = self.preprocessor(images=x, return_tensors="pt")
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 343, in torch_dynamo_resume_in_forward_at_336
+    logits = outputs.pooler_output
+AttributeError: 'ImageClassifierOutput' object has no attribute 'pooler_output'

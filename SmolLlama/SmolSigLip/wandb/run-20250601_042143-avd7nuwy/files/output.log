@@ -1,0 +1,42 @@
+Model logged to wandb - Total params: 150,910,018, Trainable: 150,910,018
+  0%|                                                                                                  | 0/30 [00:00<?, ?it/s][34m[1mwandb[0m: [33mWARNING[0m Tried to log to step 0 that is less than the current step 2. Steps must be monotonically increasing, so this data will be ignored. See https://wandb.me/define-metric to log data out of order.
+[34m[1mwandb[0m: [33mWARNING[0m Tried to log to step 1 that is less than the current step 2. Steps must be monotonically increasing, so this data will be ignored. See https://wandb.me/define-metric to log data out of order.
+  0%|                                                                                                  | 0/30 [02:34<?, ?it/s]
+Traceback (most recent call last):
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 437, in <module>
+    results = engine.train(model=siglip,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 227, in train
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 45, in train_step
+    for batch_idx, batch in enumerate(dataloader):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1491, in _next_data
+    idx, data = self._get_data()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1453, in _get_data
+    success, data = self._try_get_data()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1284, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/multiprocessing/queues.py", line 113, in get
+    if not self._poll(timeout):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/multiprocessing/connection.py", line 257, in poll
+    return self._poll(timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/multiprocessing/connection.py", line 424, in _poll
+    r = wait([self], timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/multiprocessing/connection.py", line 931, in wait
+    ready = selector.select(timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x79810980feb0>
+Traceback (most recent call last):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1096, in join
+    self._wait_for_tstate_lock()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1116, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt:

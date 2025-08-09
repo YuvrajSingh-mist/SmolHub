@@ -1,0 +1,11 @@
+{"time":"2025-06-01T05:28:02.919915465+05:30","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmp3mqocaek/port-2685718.txt","pid":2685718,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2025-06-01T05:28:02.921746741+05:30","level":"INFO","msg":"Will exit if parent process dies.","ppid":2685718}
+{"time":"2025-06-01T05:28:02.921732581+05:30","level":"INFO","msg":"server is running","addr":{"IP":"127.0.0.1","Port":41297,"Zone":""}}
+{"time":"2025-06-01T05:28:03.1060882+05:30","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"127.0.0.1:59346"}
+{"time":"2025-06-01T05:28:03.657871509+05:30","level":"INFO","msg":"handleInformInit: received","streamId":"estnlde3","id":"127.0.0.1:59346"}
+{"time":"2025-06-01T05:28:04.143288458+05:30","level":"INFO","msg":"handleInformInit: stream started","streamId":"estnlde3","id":"127.0.0.1:59346"}
+{"time":"2025-06-01T05:31:08.938574895+05:30","level":"INFO","msg":"handleInformTeardown: server teardown initiated","id":"127.0.0.1:59346"}
+{"time":"2025-06-01T05:31:08.938669704+05:30","level":"INFO","msg":"connection: closing","id":"127.0.0.1:59346"}
+{"time":"2025-06-01T05:31:08.938750143+05:30","level":"INFO","msg":"connection: closed successfully","id":"127.0.0.1:59346"}
+{"time":"2025-06-01T05:31:08.938685154+05:30","level":"INFO","msg":"server is shutting down"}
+{"time":"2025-06-01T05:31:11.155978921+05:30","level":"INFO","msg":"Parent process exited, terminating service process."}

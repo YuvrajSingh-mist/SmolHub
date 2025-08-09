@@ -1,0 +1,11 @@
+{"time":"2025-06-01T22:28:16.487758397+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/speech/advait/yuvraj/LLMs/SmolSigLip/wandb/run-20250601_222816-nyuui2ku/logs/debug-core.log"}
+{"time":"2025-06-01T22:28:16.969790382+05:30","level":"INFO","msg":"created new stream","id":"nyuui2ku"}
+{"time":"2025-06-01T22:28:16.969836441+05:30","level":"INFO","msg":"stream: started","id":"nyuui2ku"}
+{"time":"2025-06-01T22:28:16.969849371+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"nyuui2ku"}
+{"time":"2025-06-01T22:28:16.969873061+05:30","level":"INFO","msg":"sender: started","stream_id":"nyuui2ku"}
+{"time":"2025-06-01T22:28:16.969896311+05:30","level":"INFO","msg":"handler: started","stream_id":"nyuui2ku"}
+{"time":"2025-06-01T22:28:17.303195383+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-01T22:28:17.304508219+05:30","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2025-06-01T23:27:02.487195331+05:30","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-06-01T23:39:35.168409255+05:30","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/rentio/SmolSigLip/nyuui2ku/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-06-02T01:25:17.562251924+05:30","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/rentio/SmolSigLip/nyuui2ku/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}

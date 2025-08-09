@@ -1,0 +1,16 @@
+{"time":"2025-06-01T06:11:22.003939241+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/speech/advait/yuvraj/LLMs/SmolSigLip/wandb/run-20250601_061121-npcihd7k/logs/debug-core.log"}
+{"time":"2025-06-01T06:11:22.49389827+05:30","level":"INFO","msg":"created new stream","id":"npcihd7k"}
+{"time":"2025-06-01T06:11:22.493997469+05:30","level":"INFO","msg":"stream: started","id":"npcihd7k"}
+{"time":"2025-06-01T06:11:22.494055138+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"npcihd7k"}
+{"time":"2025-06-01T06:11:22.494098297+05:30","level":"INFO","msg":"sender: started","stream_id":"npcihd7k"}
+{"time":"2025-06-01T06:11:22.494105697+05:30","level":"INFO","msg":"handler: started","stream_id":"npcihd7k"}
+{"time":"2025-06-01T06:11:22.819858088+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-01T06:11:22.821166876+05:30","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2025-06-01T06:21:12.22214319+05:30","level":"INFO","msg":"stream: closing","id":"npcihd7k"}
+{"time":"2025-06-01T06:21:12.22219528+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-01T06:21:12.222279509+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-01T06:21:13.17419438+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-01T06:21:13.467343971+05:30","level":"INFO","msg":"handler: closed","stream_id":"npcihd7k"}
+{"time":"2025-06-01T06:21:13.46742361+05:30","level":"INFO","msg":"sender: closed","stream_id":"npcihd7k"}
+{"time":"2025-06-01T06:21:13.46742446+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"npcihd7k"}
+{"time":"2025-06-01T06:21:13.467527159+05:30","level":"INFO","msg":"stream: closed","id":"npcihd7k"}

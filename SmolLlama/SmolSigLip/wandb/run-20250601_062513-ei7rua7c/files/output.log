@@ -1,0 +1,85 @@
+✅ Wandb initialized successfully!
+📊 Project: SmolSigLip
+🏃 Run: siglip_lr0.0004_bs256_epochs70000
+🆔 Run ID: ei7rua7c
+🌐 Dashboard: https://wandb.ai/rentio/SmolSigLip/runs/ei7rua7c
+🔧 Setting up custom metrics...
+✅ All metrics defined successfully!
+Model logged to wandb - Total params: 150,910,018, Trainable: 150,910,018
+🎯 Epoch 1/70000:   0%|[35m                                                                          [0m| 0/70000 [00:00<?, ?epoch/s][0m/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/compile_fx.py:236: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+
+=== EPOCH 1/70000 ===
+  warnings.warn(ing:   0%|[32m                                                                            [0m| 0/32 [00:00<?, ?it/s][0m
+🎯 Epoch 1/70000:   0%|[35m                                                                          [0m| 0/70000 [11:13<?, ?epoch/s][0m
+Traceback (most recent call last):                                                                                            
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 461, in <module>
+    results = engine.train(model=siglip,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 331, in train
+    train_loss, train_acc = train_step(model=model,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 70, in train_step
+    y_pred = model(batch)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 655, in _fn
+    return fn(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 348, in forward
+    embeds_text = self.text(batch['text'])
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 348, in torch_dynamo_resume_in_forward_at_348
+    embeds_text = self.text(batch['text'])
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 838, in _fn
+    return fn(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_functorch/aot_autograd.py", line 1201, in forward
+    return compiled_fn(full_args)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 315, in runtime_wrapper
+    all_outs = call_func_at_runtime_with_args(
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/utils.py", line 126, in call_func_at_runtime_with_args
+    out = normalize_as_list(f(args))
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/utils.py", line 100, in g
+    return f(*args)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/autograd/function.py", line 575, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 1937, in forward
+    fw_outs = call_func_at_runtime_with_args(
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/utils.py", line 126, in call_func_at_runtime_with_args
+    out = normalize_as_list(f(args))
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 495, in wrapper
+    return compiled_fn(runtime_args)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 689, in inner_fn
+    outs = compiled_fn(args)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/output_code.py", line 460, in __call__
+    return self.current_callable(inputs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/utils.py", line 2404, in run
+    return model(new_inputs)
+  File "/tmp/torchinductor_advait/42/c42vdmfdceucup3ekcsp5tdfjj6pqyfiiwt6duxhfm6tqfgpel3y.py", line 4580, in call
+    triton_poi_fused__native_batch_norm_legit_functional_add_relu_19.run(buf83, buf60, buf67, buf68, primals_27, primals_28, buf71, buf78, buf79, primals_33, primals_34, 205520896, stream=stream3)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 909, in run
+    self.autotune_to_one_config(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 763, in autotune_to_one_config
+    timings = self.benchmark_all_configs(*args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 737, in benchmark_all_configs
+    timings = {
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 738, in <dictcomp>
+    launcher: self.bench(launcher, *args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 616, in bench
+    return benchmarker.benchmark_gpu(kernel_call, rep=40)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/runtime/benchmarking.py", line 39, in wrapper
+    return fn(self, *args, **kwargs)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/runtime/benchmarking.py", line 243, in benchmark_gpu
+    _callable()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 595, in kernel_call
+    cloned_args, cloned_kwargs = self.maybe_clone_args(
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 719, in maybe_clone_args
+    cloned_args = [
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 720, in <listcomp>
+    prepare_arg(name, arg)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/runtime/triton_heuristics.py", line 715, in prepare_arg
+    return clone_preserve_strides(arg)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/_inductor/utils.py", line 2417, in clone_preserve_strides
+    buffer = torch.as_strided(x, (needed_size,), (1,)).clone()
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 784.00 MiB. GPU 3 has a total capacity of 47.40 GiB of which 163.12 MiB is free. Process 2037632 has 3.38 GiB memory in use. Including non-PyTorch memory, this process has 43.85 GiB memory in use. Of the allocated memory 43.21 GiB is allocated by PyTorch, and 150.46 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

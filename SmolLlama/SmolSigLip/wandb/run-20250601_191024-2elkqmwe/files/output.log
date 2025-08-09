@@ -1,0 +1,45 @@
+✅ Wandb initialized successfully!
+📊 Project: SmolSigLip
+🏃 Run: siglip_lr0.0004_bs128_epochs70000
+🆔 Run ID: 2elkqmwe
+🌐 Dashboard: https://wandb.ai/rentio/SmolSigLip/runs/2elkqmwe
+🔧 Setting up custom metrics...
+✅ All metrics defined successfully!
+Model logged to wandb - Total params: 212,808,194, Trainable: 212,808,194
+🔍 Device check before compilation:
+   - Main model device: cuda:3
+   - Vision model device: cuda:3
+   - Text model device: cuda:3
+🔧 Compiling model with torch.compile...
+✅ Model compilation successful!
+🎯 Epoch 1/70000:   0%|[35m                                                                          [0m| 0/70000 [00:00<?, ?epoch/s][0m/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/PIL/Image.py:1043: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+
+=== EPOCH 1/70000 ===
+  warnings.warn(ing:   0%|[32m                                                                            [0m| 0/64 [00:00<?, ?it/s][0m
+W0601 19:15:55.573000 3916403 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] torch._dynamo hit config.recompile_limit (8)
+W0601 19:15:55.573000 3916403 site-packages/torch/_dynamo/convert_frame.py:964] [24/8]    function: 'torch_dynamo_resume_in_valid_images_at_150' (/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/transformers/image_utils.py:150)
+W0601 19:15:55.573000 3916403 site-packages/torch/_dynamo/convert_frame.py:964] [24/8]    last reason: 24/7: ___tuple_iterator_len(___stack0) == 120
+W0601 19:15:55.573000 3916403 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0601 19:15:55.573000 3916403 site-packages/torch/_dynamo/convert_frame.py:964] [24/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+micro step: 0/128 | loss: 0.077793
+micro step: 10/128 | loss: 0.077820
+micro step: 20/128 | loss: 0.077816
+micro step: 30/128 | loss: 0.077826
+micro step: 40/128 | loss: 0.077834
+micro step: 50/128 | loss: 0.077902
+micro step: 60/128 | loss: 0.077833
+micro step: 70/128 | loss: 0.077828
+micro step: 80/128 | loss: 0.077831
+micro step: 90/128 | loss: 0.077893
+micro step: 100/128 | loss: 0.077858
+micro step: 110/128 | loss: 0.077819
+micro step: 120/128 | loss: 0.077854
+🎯 Epoch 1/70000:   0%|[35m                                                                          [0m| 0/70000 [07:54<?, ?epoch/s][0m
+Traceback (most recent call last):                                                                                             Step=1][0m
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 499, in <module>
+    results = engine.train(model=siglip,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 345, in train
+    train_loss, train_acc = train_step(model=model,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 117, in train_step
+    print(f"🚀 Epoch {epoch+1:02d}/{30:02d} | Step {step_counter['count']:05d} | Batch {batch_idx+1:03d}/{len(dataloader):03d} | Loss: {accumulated_loss.item():.6f} | LR: {current_lr:.8f} | BS: {batch_size}")
+AttributeError: 'float' object has no attribute 'item'

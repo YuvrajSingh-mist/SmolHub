@@ -1,0 +1,97 @@
+Wandb initialized with custom metrics defined
+Model logged to wandb - Total params: 150,910,018, Trainable: 150,910,018
+  0%|                                                                                                  | 0/30 [00:00<?, ?it/s][34m[1mwandb[0m: [33mWARNING[0m Tried to log to step 0 that is less than the current step 2. Steps must be monotonically increasing, so this data will be ignored. See https://wandb.me/define-metric to log data out of order.
+
+=== EPOCH 1/30 ===
+Epoch 1, Step 0: Loss=9.875869, LR=0.00010000
+Epoch 1, Step 1: Loss=4.851074, LR=0.00010000
+[34m[1mwandb[0m: [33mWARNING[0m Tried to log to step 1 that is less than the current step 2. Steps must be monotonically increasing, so this data will be ignored. See https://wandb.me/define-metric to log data out of order.
+Epoch 1, Step 2: Loss=6.123501, LR=0.00010000
+Epoch 1, Step 3: Loss=5.628270, LR=0.00010000
+Epoch 1, Step 4: Loss=4.611821, LR=0.00010000
+Epoch 1, Step 5: Loss=4.647771, LR=0.00010000
+Epoch 1, Step 6: Loss=5.162393, LR=0.00010000
+Epoch 1, Step 7: Loss=4.699254, LR=0.00010000
+Epoch 1, Step 8: Loss=4.469887, LR=0.00010000
+Epoch 1, Step 9: Loss=4.576762, LR=0.00010000
+Epoch 1, Step 10: Loss=4.592821, LR=0.00010000
+Epoch 1, Step 11: Loss=4.881932, LR=0.00010000
+Epoch 1, Step 12: Loss=4.642209, LR=0.00010000
+Epoch 1, Step 13: Loss=4.485723, LR=0.00010000
+Epoch 1, Step 14: Loss=4.510333, LR=0.00010000
+Epoch 1, Step 15: Loss=4.616095, LR=0.00010000
+Epoch 1, Step 16: Loss=4.589722, LR=0.00010000
+Epoch 1, Step 17: Loss=4.480771, LR=0.00010000
+Epoch 1, Step 18: Loss=4.519704, LR=0.00010000
+Epoch 1, Step 19: Loss=4.667978, LR=0.00010000
+Epoch 1, Step 20: Loss=4.558342, LR=0.00010000
+Epoch 1, Step 21: Loss=4.459442, LR=0.00010000
+Epoch 1, Step 22: Loss=4.524168, LR=0.00010000
+Epoch 1, Step 23: Loss=4.488299, LR=0.00010000
+Epoch 1, Step 24: Loss=4.468699, LR=0.00010000
+Epoch 1, Step 25: Loss=4.525526, LR=0.00010000
+Epoch 1, Step 26: Loss=4.464413, LR=0.00010000
+Epoch 1, Step 27: Loss=4.453413, LR=0.00010000
+Epoch 1, Step 28: Loss=4.458192, LR=0.00010000
+Epoch 1, Step 29: Loss=4.481131, LR=0.00010000
+Epoch 1, Step 30: Loss=4.460177, LR=0.00010000
+Epoch 1, Step 31: Loss=4.490687, LR=0.00010000
+Epoch 1, Step 32: Loss=4.455338, LR=0.00010000
+Epoch 1, Step 33: Loss=4.459550, LR=0.00010000
+Epoch 1, Step 34: Loss=4.460249, LR=0.00010000
+Epoch 1, Step 35: Loss=4.455335, LR=0.00010000
+Epoch 1, Step 36: Loss=4.456203, LR=0.00010000
+Epoch 1, Step 37: Loss=4.472455, LR=0.00010000
+Epoch 1, Step 38: Loss=4.529766, LR=0.00010000
+Epoch 1, Step 39: Loss=4.541877, LR=0.00010000
+Epoch 1, Step 40: Loss=4.464662, LR=0.00010000
+Epoch 1, Step 41: Loss=4.673053, LR=0.00010000
+Epoch 1, Step 42: Loss=4.731470, LR=0.00010000
+Epoch 1, Step 43: Loss=4.513237, LR=0.00010000
+Epoch 1, Step 44: Loss=5.036909, LR=0.00010000
+Epoch 1, Step 45: Loss=4.961068, LR=0.00010000
+Epoch 1, Step 46: Loss=4.745766, LR=0.00010000
+Epoch 1, Step 47: Loss=4.763796, LR=0.00010000
+Epoch 1, Step 48: Loss=4.503131, LR=0.00010000
+Epoch 1, Step 49: Loss=4.639783, LR=0.00010000
+Epoch 1, Step 50: Loss=4.590234, LR=0.00010000
+Epoch 1, Step 51: Loss=4.493966, LR=0.00010000
+  0%|                                                                                                  | 0/30 [50:25<?, ?it/s]
+Traceback (most recent call last):
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 437, in <module>
+    results = engine.train(model=siglip,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 255, in train
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 47, in train_step
+    for batch_idx, batch in enumerate(dataloader):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1491, in _next_data
+    idx, data = self._get_data()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1453, in _get_data
+    success, data = self._try_get_data()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1284, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/multiprocessing/queues.py", line 113, in get
+    if not self._poll(timeout):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/multiprocessing/connection.py", line 257, in poll
+    return self._poll(timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/multiprocessing/connection.py", line 424, in _poll
+    r = wait([self], timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/multiprocessing/connection.py", line 931, in wait
+    ready = selector.select(timeout)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
+Exception ignored in atexit callback: <function _start_and_connect_service.<locals>.teardown_atexit at 0x71874354ae60>
+Traceback (most recent call last):
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 94, in teardown_atexit
+    conn.teardown(hooks.exit_code)
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/lib/service_connection.py", line 226, in teardown
+    self._router.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/site-packages/wandb/sdk/interface/router.py", line 75, in join
+    self._thread.join()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1096, in join
+    self._wait_for_tstate_lock()
+  File "/speech/advait/miniconda3/envs/trainBigLlama/lib/python3.10/threading.py", line 1116, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt:

@@ -1,0 +1,8 @@
+{"time":"2025-06-01T06:21:58.596220195+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/speech/advait/yuvraj/LLMs/SmolSigLip/wandb/run-20250601_062158-m55ga8sv/logs/debug-core.log"}
+{"time":"2025-06-01T06:21:59.086611779+05:30","level":"INFO","msg":"created new stream","id":"m55ga8sv"}
+{"time":"2025-06-01T06:21:59.086673629+05:30","level":"INFO","msg":"stream: started","id":"m55ga8sv"}
+{"time":"2025-06-01T06:21:59.086731708+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"m55ga8sv"}
+{"time":"2025-06-01T06:21:59.086781978+05:30","level":"INFO","msg":"sender: started","stream_id":"m55ga8sv"}
+{"time":"2025-06-01T06:21:59.086813427+05:30","level":"INFO","msg":"handler: started","stream_id":"m55ga8sv"}
+{"time":"2025-06-01T06:21:59.494074082+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-01T06:21:59.495029002+05:30","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}

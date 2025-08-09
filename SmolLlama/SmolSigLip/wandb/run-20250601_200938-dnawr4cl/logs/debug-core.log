@@ -1,0 +1,13 @@
+{"time":"2025-06-01T20:09:37.850056895+05:30","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmp3_l5cgdm/port-1059874.txt","pid":1059874,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2025-06-01T20:09:37.854327287+05:30","level":"INFO","msg":"Will exit if parent process dies.","ppid":1059874}
+{"time":"2025-06-01T20:09:37.854340897+05:30","level":"INFO","msg":"server is running","addr":{"IP":"127.0.0.1","Port":45409,"Zone":""}}
+{"time":"2025-06-01T20:09:38.032225377+05:30","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"127.0.0.1:35414"}
+{"time":"2025-06-01T20:09:38.575919162+05:30","level":"INFO","msg":"handleInformInit: received","streamId":"dnawr4cl","id":"127.0.0.1:35414"}
+{"time":"2025-06-01T20:09:39.063183346+05:30","level":"INFO","msg":"handleInformInit: stream started","streamId":"dnawr4cl","id":"127.0.0.1:35414"}
+{"time":"2025-06-01T20:17:53.516714621+05:30","level":"INFO","msg":"handleInformTeardown: server teardown initiated","id":"127.0.0.1:35414"}
+{"time":"2025-06-01T20:17:53.5168286+05:30","level":"INFO","msg":"server is shutting down"}
+{"time":"2025-06-01T20:17:53.51681556+05:30","level":"INFO","msg":"connection: closing","id":"127.0.0.1:35414"}
+{"time":"2025-06-01T20:17:53.517205937+05:30","level":"INFO","msg":"connection: closed successfully","id":"127.0.0.1:35414"}
+{"time":"2025-06-01T20:17:55.703094847+05:30","level":"INFO","msg":"handleInformTeardown: server shutdown complete","id":"127.0.0.1:35414"}
+{"time":"2025-06-01T20:17:55.703133227+05:30","level":"INFO","msg":"connection: ManageConnectionData: connection closed","id":"127.0.0.1:35414"}
+{"time":"2025-06-01T20:17:55.703151317+05:30","level":"INFO","msg":"server is closed"}

@@ -1,0 +1,16 @@
+{"time":"2025-06-01T19:53:34.79884667+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/speech/advait/yuvraj/LLMs/SmolSigLip/wandb/run-20250601_195334-x0x68z7x/logs/debug-core.log"}
+{"time":"2025-06-01T19:53:35.292042834+05:30","level":"INFO","msg":"created new stream","id":"x0x68z7x"}
+{"time":"2025-06-01T19:53:35.292121344+05:30","level":"INFO","msg":"stream: started","id":"x0x68z7x"}
+{"time":"2025-06-01T19:53:35.292175064+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"x0x68z7x"}
+{"time":"2025-06-01T19:53:35.292240433+05:30","level":"INFO","msg":"sender: started","stream_id":"x0x68z7x"}
+{"time":"2025-06-01T19:53:35.292192134+05:30","level":"INFO","msg":"handler: started","stream_id":"x0x68z7x"}
+{"time":"2025-06-01T19:53:35.7073875+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-01T19:53:35.708526535+05:30","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2025-06-01T20:00:59.895143205+05:30","level":"INFO","msg":"stream: closing","id":"x0x68z7x"}
+{"time":"2025-06-01T20:00:59.895199605+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-01T20:00:59.895270404+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-01T20:01:00.867556074+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-06-01T20:01:01.183051342+05:30","level":"INFO","msg":"handler: closed","stream_id":"x0x68z7x"}
+{"time":"2025-06-01T20:01:01.183098132+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"x0x68z7x"}
+{"time":"2025-06-01T20:01:01.183120422+05:30","level":"INFO","msg":"sender: closed","stream_id":"x0x68z7x"}
+{"time":"2025-06-01T20:01:01.183223871+05:30","level":"INFO","msg":"stream: closed","id":"x0x68z7x"}

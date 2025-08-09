@@ -1,0 +1,17 @@
+✅ Wandb initialized successfully!
+📊 Project: SmolSigLip
+🏃 Run: siglip_lr0.0004_bs128_epochs70000
+🆔 Run ID: 9evp262e
+🌐 Dashboard: https://wandb.ai/rentio/SmolSigLip/runs/9evp262e
+🔧 Setting up custom metrics...
+✅ All metrics defined successfully!
+Model logged to wandb - Total params: 212,986,602, Trainable: 212,986,602
+🎯 Epoch 1/70000:   0%|[35m                            [0m| 0/70000 [00:00<?, ?epoch/s][0m
+
+=== EPOCH 1/70000 ===
+Traceback (most recent call last):
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/train.py", line 467, in <module>
+    results = engine.train(model=siglip,
+  File "/speech/advait/yuvraj/LLMs/SmolSigLip/engine.py", line 339, in train
+    train_loss, train_acc = train_step(model=model,
+TypeError: train_step() missing 1 required positional argument: 'gradient_accumulation_steps'

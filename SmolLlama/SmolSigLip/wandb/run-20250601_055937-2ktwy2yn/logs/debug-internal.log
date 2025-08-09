@@ -1,0 +1,11 @@
+{"time":"2025-06-01T05:59:37.83200718+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/speech/advait/yuvraj/LLMs/SmolSigLip/wandb/run-20250601_055937-2ktwy2yn/logs/debug-core.log"}
+{"time":"2025-06-01T05:59:38.322463422+05:30","level":"INFO","msg":"created new stream","id":"2ktwy2yn"}
+{"time":"2025-06-01T05:59:38.322537082+05:30","level":"INFO","msg":"stream: started","id":"2ktwy2yn"}
+{"time":"2025-06-01T05:59:38.322605831+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"2ktwy2yn"}
+{"time":"2025-06-01T05:59:38.322605641+05:30","level":"INFO","msg":"sender: started","stream_id":"2ktwy2yn"}
+{"time":"2025-06-01T05:59:38.322655791+05:30","level":"INFO","msg":"handler: started","stream_id":"2ktwy2yn"}
+{"time":"2025-06-01T05:59:38.725266315+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-01T05:59:38.7264044+05:30","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2025-06-01T06:07:25.141304064+05:30","level":"INFO","msg":"stream: closing","id":"2ktwy2yn"}
+{"time":"2025-06-01T06:07:25.141394094+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-01T06:07:25.141485513+05:30","level":"INFO","msg":"Stopped system monitor"}

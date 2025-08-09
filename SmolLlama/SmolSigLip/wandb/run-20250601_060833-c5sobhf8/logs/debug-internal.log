@@ -1,0 +1,8 @@
+{"time":"2025-06-01T06:08:33.250555176+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/speech/advait/yuvraj/LLMs/SmolSigLip/wandb/run-20250601_060833-c5sobhf8/logs/debug-core.log"}
+{"time":"2025-06-01T06:08:33.737857429+05:30","level":"INFO","msg":"created new stream","id":"c5sobhf8"}
+{"time":"2025-06-01T06:08:33.737919398+05:30","level":"INFO","msg":"stream: started","id":"c5sobhf8"}
+{"time":"2025-06-01T06:08:33.737939198+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"c5sobhf8"}
+{"time":"2025-06-01T06:08:33.737996968+05:30","level":"INFO","msg":"handler: started","stream_id":"c5sobhf8"}
+{"time":"2025-06-01T06:08:33.737948078+05:30","level":"INFO","msg":"sender: started","stream_id":"c5sobhf8"}
+{"time":"2025-06-01T06:08:34.089921587+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-01T06:08:34.09115048+05:30","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}

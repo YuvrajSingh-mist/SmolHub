@@ -1,0 +1,7 @@
+{"time":"2025-06-01T06:21:57.871625501+05:30","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmprbohtt_g/port-3852993.txt","pid":3852993,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2025-06-01T06:21:57.873146445+05:30","level":"INFO","msg":"Will exit if parent process dies.","ppid":3852993}
+{"time":"2025-06-01T06:21:57.873167355+05:30","level":"INFO","msg":"server is running","addr":{"IP":"127.0.0.1","Port":40847,"Zone":""}}
+{"time":"2025-06-01T06:21:58.053201285+05:30","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"127.0.0.1:57844"}
+{"time":"2025-06-01T06:21:58.596001927+05:30","level":"INFO","msg":"handleInformInit: received","streamId":"m55ga8sv","id":"127.0.0.1:57844"}
+{"time":"2025-06-01T06:21:59.086682169+05:30","level":"INFO","msg":"handleInformInit: stream started","streamId":"m55ga8sv","id":"127.0.0.1:57844"}
+{"time":"2025-06-01T06:24:26.599200742+05:30","level":"INFO","msg":"Parent process exited, terminating service process."}

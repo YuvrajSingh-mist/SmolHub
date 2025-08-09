@@ -1,0 +1,14 @@
+{"time":"2025-06-01T05:28:03.658365475+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.11","symlink path":"/speech/advait/yuvraj/LLMs/SmolSigLip/wandb/run-20250601_052803-estnlde3/logs/debug-core.log"}
+{"time":"2025-06-01T05:28:04.143203639+05:30","level":"INFO","msg":"created new stream","id":"estnlde3"}
+{"time":"2025-06-01T05:28:04.143279548+05:30","level":"INFO","msg":"stream: started","id":"estnlde3"}
+{"time":"2025-06-01T05:28:04.143294428+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"estnlde3"}
+{"time":"2025-06-01T05:28:04.143303408+05:30","level":"INFO","msg":"sender: started","stream_id":"estnlde3"}
+{"time":"2025-06-01T05:28:04.143342248+05:30","level":"INFO","msg":"handler: started","stream_id":"estnlde3"}
+{"time":"2025-06-01T05:28:04.471052512+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-06-01T05:28:04.472192163+05:30","level":"ERROR","msg":"git repo not found","error":"repository does not exist"}
+{"time":"2025-06-01T05:30:29.358147567+05:30","level":"WARN","msg":"handler: ignoring partial history record","step":0,"current":2}
+{"time":"2025-06-01T05:30:29.534411484+05:30","level":"WARN","msg":"handler: ignoring partial history record","step":1,"current":2}
+{"time":"2025-06-01T05:31:08.938694774+05:30","level":"INFO","msg":"stream: closing","id":"estnlde3"}
+{"time":"2025-06-01T05:31:08.938743043+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-06-01T05:31:08.938786373+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-06-01T05:31:10.827712338+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
