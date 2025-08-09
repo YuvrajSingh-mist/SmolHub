@@ -1,4 +1,21 @@
+"""
+StoryLlama Gradio App with ZeroGPU Support
+
+This Gradio application provides a web interface for the StoryLlama model,
+optimized for deployment on Hugging Face Spaces with ZeroGPU.
+
+Requirements:
+- ZeroGPU hardware selected in Space settings
+- All GPU-dependent functions decorated with @spaces.GPU
+- 'spaces' package in requirements.txt
+
+Usage:
+- Deploy on Hugging Face Spaces with ZeroGPU
+- For local testing, the @spaces.GPU decorators are effect-free
+"""
+
 import gradio as gr
+import spaces
 from transformers import pipeline
 from config import ModelArgs
 from inference import remove_prefix
@@ -34,6 +51,7 @@ tk = tk.ready_tokenizer()
 
 
 
+@spaces.GPU
 def beam_search(model, prompt, device, max_length=50, beam_width=5, top_k=50, temperature=1.0):
     input_ids = tk.encode(prompt, return_tensors='pt').to(device)
     
@@ -75,6 +93,7 @@ def beam_search(model, prompt, device, max_length=50, beam_width=5, top_k=50, te
     return tk.decode(best_sequence, skip_special_tokens=True)
 
 # Function to load the selected model
+@spaces.GPU
 def load_model(model_type):
     model_path = model_paths[model_type]
 
@@ -102,21 +121,30 @@ def load_model(model_type):
     dict_model['MODEL_STATE'] = remove_prefix(dict_model['MODEL_STATE'], '_orig_mod.')
     model.load_state_dict(dict_model['MODEL_STATE'])
     model.eval()
+    
+    # Add model type attribute for tracking
+    model._model_type = model_type
 
     return model
 
 
 # download_models()
-current_model = load_model("Pretrained")
+# Initialize current_model as None to load on first use
+current_model = None
+current_model_type = None
         
    
+@spaces.GPU(duration=120)
 def answer_question(model_type, prompt, temperature, top_k, max_length):
-    global current_model
-    # Reload model if the selected model type is different
+    global current_model, current_model_type
+    
+    # Reload model if the selected model type is different or model is not loaded
     if model_type == "Base (Pretrained)":
         model_type = "Pretrained"
-    if model_paths[model_type] != model_paths.get(current_model, None):
+    
+    if current_model is None or current_model_type != model_type:
         current_model = load_model(model_type)
+        current_model_type = model_type
 
 
     # formatted_prompt = f"### Instruction: Answer the following query. \n\n ### Input: {prompt}.\n\n ### Response: "
