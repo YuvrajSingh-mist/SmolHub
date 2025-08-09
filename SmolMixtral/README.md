@@ -10,7 +10,7 @@ A PyTorch implementation of a Mixtral inspired transformer model with Mixture of
 
 Provided under the `generated_data/` directory, these examples showcase the model's capabilities in text generation and understanding.
 
-![SmolMixtral Model](images/loss.png)
+![SmolMixtral Model](images/loss.jpg)
 
 ## 📊 Training Results & Model Weights
 
@@ -283,3 +283,4 @@ Feel free to contribute improvements, bug fixes, or new features!
 ## License
 
 MIT License
+
