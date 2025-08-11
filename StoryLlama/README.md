@@ -88,14 +88,14 @@ Below is a table summarizing the configuration parameters for the model:
 
 - Loss Curves (Train and Val)
 
-![Loss Curves (Train and Val)](imgs/loss_curves.jpg)
+![Loss Curves (Train and Val)](images/loss_curves.jpg)
 
 --- 
 #### Output
 
 - Prompt: Once upon a time
 
-![Prompt: Once upon a time](imgs/sample.jpg)
+![Prompt: Once upon a time](images/sample.jpg)
 
 ---
 
